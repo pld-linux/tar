@@ -10,7 +10,7 @@ diff -Nru tar-1.12/doc/tar.texi tar-1.12.new/doc/tar.texi
 -END-INFO-DIR-ENTRY
 +@dircategory File utilities:
 +@direntry
-+* tar: (tar)				Making tape (or disk) archives
++* tar: (tar).				Making tape (or disk) archives
 +@end direntry
  @end format
  @end ifinfo
