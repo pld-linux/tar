@@ -1,0 +1,11 @@
+--- tar-1.13.90/configure.ac.orig	2003-11-15 01:31:27.000000000 +0100
++++ tar-1.13.90/configure.ac	2003-11-15 01:42:39.026116328 +0100
+@@ -260,6 +260,8 @@
+ # Gettext.
+ AM_GNU_GETTEXT([external], [need-ngettext])
+ AM_GNU_GETTEXT_VERSION(0.12.1)
++# not texted if external gettext
++AC_CHECK_FUNCS([setlocale])
+ 
+ AC_OUTPUT([Makefile doc/Makefile lib/Makefile \
+ m4/Makefile po/Makefile.in \

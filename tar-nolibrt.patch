@@ -1,19 +1,11 @@
---- tar-1.13.22/configure.ac.rt	Thu Sep 13 14:06:03 2001
-+++ tar-1.13.22/configure.ac	Thu Sep 13 14:06:50 2001
-@@ -166,12 +166,13 @@
- #
- # Solaris 2.5.1 needs -lposix4 to get the clock_gettime function.
+--- tar-1.13.90/configure.ac.orig	2003-10-08 12:07:45.000000000 +0200
++++ tar-1.13.90/configure.ac	2003-11-15 00:11:55.284690816 +0100
+@@ -152,8 +152,6 @@
  # Solaris 7 prefers the library name -lrt to the obsolescent name -lposix4.
-+# We don't want that dependency, though. Check for something weird. ;)
- tar_LDADD=
- tar_save_LIBS="$LIBS"
--AC_SEARCH_LIBS(clock_gettime, [rt posix4])
--AC_CHECK_FUNCS(clock_gettime)
-+AC_SEARCH_LIBS(clock_gettyme, [rt posix4])
-+AC_CHECK_FUNCS(clock_gettyme)
- if test " $LIBS" != " $tar_save_LIBS"; then
--  tar_LDADD="$ac_cv_search_clock_gettime"
-+  tar_LDADD="$ac_cv_search_clock_gettyme"
-   LIBS="$tar_save_LIBS"
- fi
- AC_SUBST(tar_LDADD)
+ tar_save_LIBS=$LIBS
+   LIB_CLOCK_GETTIME=
+-  AC_SEARCH_LIBS(clock_gettime, [rt posix4],
+-		 [LIB_CLOCK_GETTIME=$ac_cv_search_clock_gettime])
+   AC_SUBST(LIB_CLOCK_GETTIME)
+   AC_CHECK_FUNCS(clock_gettime)
+ LIBS=$tar_save_LIBS
