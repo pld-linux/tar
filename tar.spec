@@ -87,20 +87,20 @@ Tar devrait être installé sur tout système car ses capacité de
 
 %description -l pl
 Program GNU tar s³u¿y do zapisywania wielu plików w pojedynczym
-archiwum i moze tak¿e s³u¿yæ do odzyskiwania z tak prepaowanych
+archiwum i mo¿e tak¿e s³u¿yæ do odzyskiwania z tak preparowanych
 archiwów pojedynczych plików (lub wszystkich). Za jego pomoc± mo¿na
-tak¿e dodwaæ nowe pliki do ju¿ istiej±cego archiwum.
+tak¿e dodawaæ nowe pliki do ju¿ istniej±cego archiwum.
 
 GNU tar umo¿liwia robienie wieloczê¶ciowych archiwów (multivolume
 archive), automatyczn± kompresjê i dekompresjê samego archiwum a tak¿e
-ma mo¿liwo¶æ operowania na zdalnych archiiwach co jest przydatne przy
+ma mo¿liwo¶æ operowania na zdalnych archiwach co jest przydatne przy
 sporz±dzaniu przyrostowych i pe³nych archiwów zasobów.
 
-Je¿eli zamierzasz u¿ywaæ rprogramu tar do operowania na zdalnych
+Je¿eli zamierzasz u¿ywaæ programu tar do operowania na zdalnych
 archiwach powiniene¶ doinstalowaæ pakiet rmt.
 
 GNU tar s³u¿y do zapisywania wielu plików na ta¶mê lub dysk. Mo¿e
-odtwarzaæ pojedyñcze pliki z archiwum. Umo¿liwia zapis du¿ego archiwum
+odtwarzaæ pojedyncze pliki z archiwum. Umo¿liwia zapis du¿ego archiwum
 z podzia³em na wiele no¶ników. Tar obs³uguje tak¿e automatyczn±
 kompresjê/dekompresjê i archiwa zdalne. Posiada specjalne opcje do
 robienia pe³nych i przyrostowych kopii bezpieczeñstwa. Aby tworzyæ
