@@ -140,6 +140,8 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %build
 chmod -R a+rwX .
 rm -f missing m4/{ccstdc,codeset,gettext,glibc21,iconv,isc-posix,lcmessage,progtest,ulonglong}.m4
+mv -f m4/{inttypes.m4,jm-inttypes.m4}
+%{__gettextize}
 %{__autoheader}
 %{__aclocal} -I m4
 %{__autoconf}
