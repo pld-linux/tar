@@ -6,8 +6,8 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13.22
-Release:	2
+Version:	1.13.25
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
