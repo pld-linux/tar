@@ -5,7 +5,7 @@ Summary(pl): Program do archiwizacji (GNU)
 Summary(tr): Yaygýn kullanýlan yedekleyici
 Name:        tar
 Version:     1.12
-Release:     5
+Release:     6
 Copyright:   GPL
 Group:       Utilities/Archiving
 Source0:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
@@ -87,12 +87,12 @@ gzip -9nf $RPM_BUILD_ROOT/usr/info/tar.info*
 install tar.1 $RPM_BUILD_ROOT/usr/man/man1
 
 %post
-/sbin/install-info /usr/info/tar.info.gz /usr/info/dir
+/sbin/install-info /usr/info/tar.info.gz /usr/info/dir --entry \
+"* tar: (tar).                                   Making tape (or disk) archives."
 
 %preun
-if [ $1 = 0 ]; then
-   /sbin/install-info --delete /usr/info/tar.info.gz /usr/info/dir
-fi
+/sbin/install-info --delete /usr/info/tar.info.gz /usr/info/dir --entry \
+"* tar: (tar).                                   Making tape (or disk) archives."
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -117,6 +117,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sv) /usr/share/locale/sv/LC_MESSAGES/tar.mo
 
 %changelog
+* Sat Nov 21 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.12-6]
+- added {un}registering info page in %post %preun with --entry.
+
 * Mon Sep 21 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.12-5]
 - changed Buildroot to /tmp/%%{name}-%%{version}-root,
