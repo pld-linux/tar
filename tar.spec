@@ -104,7 +104,6 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 
 %build
 chmod -R a+rwX .
-gettextize --copy --force
 %configure
 
 (cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
