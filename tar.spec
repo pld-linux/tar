@@ -21,10 +21,11 @@ Patch4:		%{name}-error.patch
 Patch5:		%{name}-sock.patch
 Patch6:		%{name}-nolibrt.patch
 Patch7:		%{name}-man.patch
+Patch8:		%{name}-ac25x.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
 BuildRequires:	bison
+BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
@@ -127,6 +128,7 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p0
+%patch8 -p1
 
 %build
 chmod -R a+rwX .
@@ -137,7 +139,12 @@ autoconf
 automake -a -c -f
 %configure
 
-(cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
+cd doc
+cp -f stamp-vti version.texi
+touch *
+makeinfo --force tar.texi
+cd ..
+
 %{__make}
 
 %install
@@ -146,7 +153,7 @@ install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-ln -s %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
+ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
@@ -154,14 +161,14 @@ gzip -9nf README NEWS
 
 %find_lang %{name}
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
