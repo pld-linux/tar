@@ -13,7 +13,7 @@ License:	GPL
 Group:		Applications/Archiving
 Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.gz
 # Source0-md5:	6ef8c906e81eee441f8335652670ac4a
-Source1:	%{name}-non-english-man-pages.tar.bz2
+Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5: 	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-man_from_debian_tar_1.13.25-2.patch
 Patch1:		%{name}-info.patch
