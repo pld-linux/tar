@@ -1,25 +1,14 @@
-diff -Nru tar-1.12/doc/tar.texi tar-1.12.new/doc/tar.texi
---- tar-1.12/doc/tar.texi	Thu Apr 24 15:19:40 1997
-+++ tar-1.12.new/doc/tar.texi	Mon Jan  4 14:39:10 1999
-@@ -449,9 +449,10 @@
+diff -Nru tar-1.13.14/doc/tar.texi tar-1.13.14.new/doc/tar.texi
+--- tar-1.13.14/doc/tar.texi	Mon Nov 22 04:35:49 1999
++++ tar-1.13.14.new/doc/tar.texi	Mon Nov 22 04:37:51 1999
+@@ -458,8 +458,8 @@
+ @syncodeindex op cp
  
  @ifinfo
- @format
--START-INFO-DIR-ENTRY
+-@direntry
 -* tar: (tar).			Making tape (or disk) archives.
--END-INFO-DIR-ENTRY
-+@dircategory File utilities:
-+@direntry
++@direntry File utilities:
 +* tar: (tar).				Making tape (or disk) archives
-+@end direntry
- @end format
- @end ifinfo
+ @end direntry
  
-@@ -524,6 +525,7 @@
- @end ifinfo
- 
- @node Top, Introduction, (dir), (dir)
-+@top GNU tar
- 
- @menu
- * Introduction::
+ This file documents @sc{gnu} @command{tar}, which creates and extracts
