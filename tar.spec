@@ -24,7 +24,7 @@ Patch5:		%{name}-dots.patch
 Patch6:		%{name}-zero-block.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1.8
+BuildRequires:	automake >= 1:1.8
 BuildRequires:	bison
 BuildRequires:	gettext-devel >= 0.14.1
 BuildRequires:	texinfo
