@@ -118,7 +118,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1,%{_mandir}/pl/man1}
 
-make DESTDIR=$RPM_BUILD_ROOT install
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 ln -s %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
