@@ -1,0 +1,159 @@
+Summary:     GNU Tape Archiver (tar)
+Summary(de): GNU-Magnetband-Archivierprogramm (tar)
+Summary(fr): Programme d'archivage GNU (tar : GNU Tape Archiver).
+Summary(pl): Program do archiwizacji (GNU)
+Summary(tr): Yaygýn kullanýlan yedekleyici
+Name:        tar
+Version:     1.12
+Release:     5
+Copyright:   GPL
+Group:       Utilities/Archiving
+Source0:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Patch0:      tar-1.11.8-manpage.patch
+Patch1:      tar-bzip2.patch
+Patch2:      tar-cached_uid.patch
+Patch3:      tar-bzip2-locale.patch
+Patch4:      tar-1.12-pl.po.patch
+Prereq:      /sbin/install-info
+Buildroot:   /tmp/%{name}-%{version}-root
+
+%description
+GNU `tar' saves many files together into a single tape or disk archive, and
+can restore individual files from the archive. It includes multivolume
+support, the ability to archive sparse files, automatic archive
+compression/decompression, remote archives and special features that allow
+`tar' to be used for incremental and full backups. If you wish to do remote
+backups with tar, you will need to install the `rmt' package as well.
+
+%description -l de
+GNU 'tar' speichert viele Dateien zusammen in ein einzelnes Band- oder
+Disk-Archiv und kann einzelne Dateien aus dem Archiv wiederherstellen. Es
+beinhaltet Multivolume-Support, die Fähigkeit, seltene Dateien zu
+archivieren, automatische Archiv-Komprimierung und Dekomprimierung, Archive
+an entfernten Standorten und Spezialfunktionen, die es ermöglichen, 'tar'
+für inkrementelle und vollständige Backups einzusetzen. Wenn Sie vorhaben,
+Remote-Backups mit tar zu erstellen, dann benötigen Sie dazu das rmt-Paket.
+
+%description -l fr
+GNU tar sauvegarde plusieurs fichiers sur une seule archive sur bande ou sur
+disque et peut restaurer les fichiers individuellement à partir de
+l'archive. Il comprend une gestion multi-volumes, la possibilité d'archiver
+des fichiers éparpillés, la compression/décompression automatique de
+l'archive, les archives distantes et des caractéristiques spéciales
+permettant à tar d'être utilisé pour des sauvegardes incrémentales et
+complètes. Si vous souhaitez faire des sauvegardes distantes avec tar, vous
+devrez installer aussi le paquetage « rmt ».
+
+%description -l pl
+GNU tar s³u¿y do zapisywania wielu plików na ta¶mê lub dysk. Mo¿e odtwarzaæ
+pojedyñcze pliki z archiwum. Umo¿liwia zapis du¿ego archiwum z podzia³em na
+wiele no¶ników. Tar obs³uguje tak¿e automatyczn± kompresjê/dekompresjê i
+archiwa zdalne. Posiada specjalne opcje do robienia pe³nych i przyrostowych
+kopii bezpieczeñstwa. Aby tworzyæ zdalne archiwa tar-a trzeba zainstalowaæ
+pakiet rmt.
+
+%description -l tr
+GNU tar, birden çok dosyayý tek bir manyetik bant ya da disk üzerinde
+arþivleyebildiði gibi, bu dosyalarýn arþivden tek tek geri yüklenmesine de
+izin verir. Çok kýsýmlý arþivleri, otomatik arþiv sýkýþtýrma ve açmayý, uzak
+arþivleri, artýmsal yedeklemeyi destekler.
+
+%prep
+%setup -q
+%patch0 -p1
+%patch1 -p0
+%patch2 -p0
+%patch3 -p0
+%patch4 -p1
+
+%build
+LIBS=-lbsd CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s ./configure \
+	--prefix=/usr \
+	--bindir=/bin \
+	--libexecdir=/sbin
+
+make
+# CFLAGS="$RPM_OPT_FLAGS -DHAVE_STRERROR -D_GNU_SOURCE" LIBS=-lbsd
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
+
+make prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin libexecdir=$RPM_BUILD_ROOT/sbin install
+
+ln -s ../../bin/tar $RPM_BUILD_ROOT/usr/bin/gtar
+gzip -9nf $RPM_BUILD_ROOT/usr/info/tar.info*
+
+install tar.1 $RPM_BUILD_ROOT/usr/man/man1
+
+%post
+/sbin/install-info /usr/info/tar.info.gz /usr/info/dir
+
+%preun
+if [ $1 = 0 ]; then
+   /sbin/install-info --delete /usr/info/tar.info.gz /usr/info/dir
+fi
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(0644, root, root, 0755)
+%doc NEWS README
+%attr(755, root, root) /bin/*
+%attr(755, root, root) /usr/bin/*
+/usr/info/tar.info*
+%attr(644, root, man) /usr/man/man1/*
+
+%lang(de) /usr/share/locale/de/LC_MESSAGES/tar.mo
+%lang(fr) /usr/share/locale/fr/LC_MESSAGES/tar.mo
+%lang(it) /usr/share/locale/it/LC_MESSAGES/tar.mo
+%lang(ko) /usr/share/locale/ko/LC_MESSAGES/tar.mo
+%lang(nl) /usr/share/locale/nl/LC_MESSAGES/tar.mo
+%lang(no) /usr/share/locale/no/LC_MESSAGES/tar.mo
+%lang(pl) /usr/share/locale/pl/LC_MESSAGES/tar.mo
+%lang(pt) /usr/share/locale/pt/LC_MESSAGES/tar.mo
+%lang(sl) /usr/share/locale/sl/LC_MESSAGES/tar.mo
+%lang(sv) /usr/share/locale/sv/LC_MESSAGES/tar.mo
+
+%changelog
+* Mon Sep 21 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.12-5]
+- changed Buildroot to /tmp/%%{name}-%%{version}-root,
+- added using %%{name} and %%{version} in Source,
+- added static subpackage,
+- changed passing $RPM_OPT_FLAGS, LIBS and LDFLAGS (now as a configure
+  enviroment variable).
+
+* Wed Sep  2 1998 Konrad Stêpieñ <konrad@interdata.com.pl>
+  [1.12-5]
+- added %%{PACKAGE_VERSION} macros to Buildroot and Source,
+- patched to better performaance witch unknown uid/gid,
+- Source adres changed to regular URL,
+- updated pl locales to 1.12,
+- added bzip2 support, update man page and pl locales,
+- translation for pl,
+- changed mkdir to install -d,
+- added %doc.
+
+* Tue Aug  4 1998 Jeff Johnson <jbj@redhat.com>
+- add /usr/bin/gtar symlink (change #421)
+
+* Tue Jul 14 1998 Jeff Johnson <jbj@redhat.com>
+- Fiddle bindir/libexecdir to get RH install correct.
+- Don't include /sbin/rmt -- use the rmt from dump.
+- Turn on nls.
+
+* Mon Apr 27 1998 Prospector System <bugs@redhat.com>
+- translations modified for de, fr, tr
+
+* Thu Oct 16 1997 Donnie Barnes <djb@redhat.com>
+- updated from 1.11.8 to 1.12
+- various spec file cleanups
+- /sbin/install-info support
+
+* Thu Jun 19 1997 Erik Troan <ewt@redhat.com>
+- built against glibc
+
+* Thu May 29 1997 Michael Fulbright <msf@redhat.com>
+- Fixed to include rmt
