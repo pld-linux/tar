@@ -7,29 +7,27 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.90
-Release:	0.1
+Release:	0.2
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
-Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.gz
-# Source0-md5:	a9250247451cda1b3832cbba6c4feb97
+Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
+# Source0-md5:	0f092ac2177a0edfd5368ed042650266
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-man_from_debian_tar_1.13.25-2.patch
-Patch1:		%{name}-info.patch
-Patch2:		%{name}-pipe.patch
-Patch3:		%{name}-namecache.patch
-Patch4:		%{name}-error.patch
-Patch5:		%{name}-sock.patch
-Patch6:		%{name}-nolibrt.patch
-Patch7:		%{name}-man.patch
-Patch8:		%{name}-ac25x.patch
-Patch9:		%{name}-dots.patch
-Patch10:	%{name}-pl.po-fix.patch
-BuildRequires:	autoconf
-BuildRequires:	automake
+Patch1:		%{name}-man.patch
+Patch2:		%{name}-info.patch
+Patch3:		%{name}-pl.po-update.patch
+Patch4:		%{name}-sock.patch
+Patch5:		%{name}-nolibrt.patch
+Patch6:		%{name}-dots.patch
+Patch7:		%{name}-locale.patch
+BuildRequires:	autoconf >= 2.57
+BuildRequires:	automake >= 1.7.5
 BuildRequires:	bison
 BuildRequires:	gettext-devel
+BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
@@ -126,33 +124,24 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %prep
 %setup -q
 %patch0 -p2
-#%patch1 -p1
-#%patch2 -p1
-#%patch3 -p1
-#%patch4 -p1
-#%patch5 -p1
-#%patch6 -p1
-%patch7 -p0
-#%patch8 -p1
-#%patch9 -p1
-#%patch10 -p1
+%patch1 -p0
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+
+rm -f po/stamp-po
 
 %build
-chmod -R a+rwX .
-rm -f missing m4/{ccstdc,codeset,gettext,glibc21,iconv,isc-posix,lcmessage,progtest,ulonglong}.m4
-mv -f m4/{inttypes.m4,jm-inttypes.m4}
 %{__gettextize}
 %{__autoheader}
 %{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
-
-cd doc
-cp -f stamp-vti version.texi
-touch *
-makeinfo --force tar.texi
-cd ..
 
 %{__make}
 
@@ -160,9 +149,11 @@ cd ..
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
+
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
