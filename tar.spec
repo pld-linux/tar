@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Sep  2 1998 Konrad Stêpieñ <konrad@interdata.com.pl>
   [1.12-5]
 - added %%{PACKAGE_VERSION} macros to Buildroot and Source,
-- patched to better performaance witch unknown uid/gid,
+- patched to better performaance which unknown uid/gid,
 - Source adres changed to regular URL,
 - updated pl locales to 1.12,
 - added bzip2 support, update man page and pl locales,
