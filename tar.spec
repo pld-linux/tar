@@ -17,7 +17,7 @@ Patch1:		tar-info.patch
 Patch2:		tar-pipe.patch
 Patch3:		tar-namecache.patch
 Prereq:		/usr/sbin/fix-info-dir
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
 %define		_libexecdir	/sbin
