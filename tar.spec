@@ -18,7 +18,7 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-man-debian.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-info.patch
-#Patch3:		%{name}-pl.po-update.patch
+Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-sock.patch
 Patch5:		%{name}-dots.patch
 Patch6:		%{name}-zero-block.patch
@@ -126,7 +126,7 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch0 -p2
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
+%patch3 -p1
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
