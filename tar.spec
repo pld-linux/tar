@@ -22,8 +22,7 @@ Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-sock.patch
 Patch5:		%{name}-nolibrt.patch
 Patch6:		%{name}-dots.patch
-Patch7:		%{name}-locale.patch
-Patch8:		%{name}-iconv.patch
+Patch7:		%{name}-iconv.patch
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.8
 BuildRequires:	bison
@@ -132,7 +131,6 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p1
 
 rm -f po/stamp-po
 
