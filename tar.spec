@@ -7,7 +7,7 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.94
-Release:	0.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
@@ -126,8 +126,7 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch0 -p2
 %patch1 -p0
 %patch2 -p1
-# needs update
-#%patch3 -p1
+%patch3 -p1
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
