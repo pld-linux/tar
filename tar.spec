@@ -75,7 +75,7 @@ arþivleri, artýmsal yedeklemeyi destekler.
 install %{SOURCE1} po
 %build
 LIBS="-lbsd" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=/usr \
 	--bindir=/bin \
 	--libexecdir=/sbin
