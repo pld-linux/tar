@@ -5,17 +5,17 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.11
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
-Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Source0:	ftp://prep.ai.mit.edu/pub/gnu/tar/%{name}-%{version}.tar.gz
 Source1:	tar.1.pl
 Patch0:		tar-manpage.patch
 Patch1:		tar-info.patch
 Patch2:		tar-pipe.patch
 Patch3:		tar-namecache.patch
-Prereq:		/sbin/install-info
+Prereq:		/usr/sbin/fix-info-dir
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define		_exec_prefix	/
@@ -131,12 +131,10 @@ gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/tar.info*,%{_mandir}/man1/*} \
 %find_lang %{name}
 
 %post
-/sbin/install-info %{_infodir}/tar.info.gz /etc/info-dir
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
-%preun
-if [ $1 = 0 ]; then
-	/sbin/install-info --delete %{_infodir}/tar.info.gz /etc/info-dir
-fi
+%postun
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
