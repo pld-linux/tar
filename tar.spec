@@ -5,11 +5,12 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.17
-Release:	6
+Release:	9
 Epoch:		1
 License:	GPL
-Group:		Utilities/Archiving
-Group(pl):	Narzêdzia/Archiwizacja
+Group:		Applications/Archiving
+Group(de):	Applikationen/Archivierung
+Group(pl):	Aplikacje/Archiwizacja
 Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.gz
 Source1:	%{name}.1.pl
 Patch0:		%{name}-manpage.patch
@@ -19,6 +20,7 @@ Patch3:		%{name}-namecache.patch
 Patch4:		%{name}-excluded_name.patch
 Patch5:		%{name}-fnmatch.patch
 Patch6:		%{name}-ia64.patch
+Patch7:		%{name}-exitcode.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
@@ -110,12 +112,13 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
+%patch7 -p1
 
 %build
 chmod -R a+rwX .
 gettextize --copy --force
 LIBS="-lbsd" ; export LIBS
-LDFLAGS="-s" ; export LDFLAGS
 %configure
 %ifarch ia64
 patch -p1 < %{PATCH3}
@@ -134,9 +137,7 @@ ln -s %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 
-gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/tar.info*,%{_mandir}/man1/*} \
-	$RPM_BUILD_ROOT%{_mandir}/*/man1/* \
-	README NEWS
+gzip -9nf README NEWS
 
 %find_lang %{name}
 
