@@ -4,8 +4,8 @@ Summary(fr):	Programme d'archivage GNU (tar: GNU Tape Archiver)
 Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13.17
-Release:	9
+Version:	1.13.18
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
@@ -18,9 +18,7 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-pipe.patch
 Patch3:		%{name}-namecache.patch
 Patch4:		%{name}-excluded_name.patch
-Patch5:		%{name}-fnmatch.patch
-Patch6:		%{name}-ia64.patch
-Patch7:		%{name}-exitcode.patch
+Patch5:		%{name}-fail.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
@@ -39,10 +37,6 @@ to perform incremental and full backups.
 If you want to use Tar for remote backups, you'll also need to install
 the rmt package.
 
-You should install the tar package, because you'll find its
-compression and decompression utilities essential for working with
-files.
-
 %description -l de
 Das GNU tar-Programm speichert mehrere Dateien in ein Archiv, und kann
 einzelne Dateien daraus wiederherstellen (oder auch alle Dateien). Tar
@@ -55,8 +49,6 @@ zu archivieren und die Möglichkeit zu inkrementellen backups.
 
 Wenn Sie tar für Netzwerkbackups benutzen wollen, brauchen Sie
 außerdem das rmt-Paket.
-
-Sie sollten tar installieren, da es wichtig zur Dateibehandlung ist.
 
 %description -l fr
 Le programme GNU tar permet de regrouper plusieurs fichiers en une
@@ -73,9 +65,6 @@ devriez également installer le programme rmt.
 
 Tar devrait être installé sur tout système car ses capacité de
 (dé)compression sont essentielles pour travailler sur les fichiers.
-
-Pour profiter pleinement de tar, vous devriez installer les
-compresseurs gzip et/ou bzip2.
 
 %description -l pl
 Program GNU tar s³u¿y do zapisywania wielu plików w pojedynczym
@@ -112,17 +101,11 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-#%patch6 -p1
-%patch7 -p1
 
 %build
 chmod -R a+rwX .
 gettextize --copy --force
-LIBS="-lbsd" ; export LIBS
 %configure
-%ifarch ia64
-patch -p1 < %{PATCH3}
-%endif
 
 (cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
 %{__make}
