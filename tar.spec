@@ -5,7 +5,7 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.12
-Release:	8
+Release:	10
 Copyright:	GPL
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
