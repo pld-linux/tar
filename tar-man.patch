@@ -1,6 +1,6 @@
---- tar.1.orig	Wed Apr 10 19:56:21 2002
-+++ tar.1	Wed Apr 10 21:14:42 2002
-@@ -149,19 +149,19 @@
+--- tar-1.14/tar.1.orig	2004-05-22 15:37:01.300876240 +0200
++++ tar-1.14/tar.1	2004-05-22 15:37:46.993929840 +0200
+@@ -13,19 +13,19 @@
  .TP
  .I filename1 [ filename2, ... filenameN ] 
  .TP
@@ -25,14 +25,23 @@
  to a normal file. 
  The first argument to 
  .B tar
-@@ -311,7 +311,9 @@
+@@ -272,7 +272,9 @@
  create archive with volume name NAME
  .TP 
- .B --version		
+ .B \-\-version		
 -print tar program version number
 +print
 +.B tar
 +program version number
  .TP
- .B -w, --interactive, --confirmation	
- ask for confirmation for every action
+ .B \-\-volno\-file F
+ keep track of current volume (of a multi-volume archive) in F
+@@ -306,7 +308,7 @@
+ The maintainer of tar falls into this category.  This man page is neither
+ complete, nor current, and was included in the Debian Linux packaging of tar
+ entirely to reduce the frequency with which the lack of a man page gets
+-reported as a bug in our defect tracking system.
++reported as a bug in their defect tracking system.
+ 
+ If you really want to understand tar, then you should run info and read the
+ tar info pages, or use the info mode in emacs.
