@@ -6,13 +6,13 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13.92
-Release:	0.2
+Version:	1.13.93
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
 Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	fdfffdd8141a00ea72c16c34b486a00a
+# Source0-md5:	641462158ce5175f212f64855257d5d2
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-man_from_debian_tar_1.13.25-2.patch
@@ -23,11 +23,11 @@ Patch4:		%{name}-sock.patch
 Patch5:		%{name}-nolibrt.patch
 Patch6:		%{name}-dots.patch
 Patch7:		%{name}-locale.patch
-Patch8:		%{name}-fix-create-options.patch
-BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake >= 1.7.5
+Patch8:		%{name}-iconv.patch
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1.8
 BuildRequires:	bison
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-devel >= 0.14.1
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
