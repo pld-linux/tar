@@ -135,8 +135,8 @@ chmod -R a+rwX .
 rm -f missing m4/{ccstdc,codeset,gettext,glibc21,iconv,isc-posix,lcmessage,progtest,ulonglong}.m4
 autoheader
 aclocal -I m4
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure
 
 cd doc
