@@ -1,14 +1,20 @@
-diff -Nru tar-1.13.14/doc/tar.texi tar-1.13.14.new/doc/tar.texi
---- tar-1.13.14/doc/tar.texi	Mon Nov 22 04:35:49 1999
-+++ tar-1.13.14.new/doc/tar.texi	Mon Nov 22 04:37:51 1999
-@@ -458,8 +458,8 @@
+diff -Nru tar-1.13.19/doc/tar.texi tar-1.13.19.new/doc/tar.texi
+--- tar-1.13.19/doc/tar.texi	Sat Jan 13 07:04:48 2001
++++ tar-1.13.19.new/doc/tar.texi	Wed Jan 17 21:23:28 2001
+@@ -463,14 +463,9 @@
+ @defindex op
  @syncodeindex op cp
  
- @ifinfo
+-@dircategory GNU Packages
++@dircategory File utilities:
+ @direntry
+-Tar: (tar).			Making tape (or disk) archives.
+-@end direntry
+-
+-@dircategory Individual utilities
 -@direntry
--* tar: (tar).			Making tape (or disk) archives.
-+@direntry File utilities:
-+* tar: (tar).				Making tape (or disk) archives
+-* tar: (tar)tar invocation.                     Invoking @sc{gnu} @command{tar}
++Tar: (tar).				Making tape (or disk) archives
  @end direntry
  
- This file documents @sc{gnu} @command{tar}, which creates and extracts
+ @ifinfo
