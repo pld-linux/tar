@@ -7,7 +7,7 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.14
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
@@ -21,6 +21,7 @@ Patch2:		%{name}-info.patch
 Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-sock.patch
 Patch5:		%{name}-dots.patch
+Patch6:		%{name}-zero-block.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.8
@@ -128,6 +129,7 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 rm -f po/stamp-po
 
