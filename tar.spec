@@ -13,6 +13,7 @@ License:	GPL
 Group:		Applications/Archiving
 Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
+# Source1-md5: ace8d5458c6bc1862f27895e74d2c30a
 Patch0:		%{name}-man_from_debian_tar_1.13.25-2.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-pipe.patch
