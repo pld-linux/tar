@@ -6,22 +6,21 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13.94
+Version:	1.14
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
-Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	ff0c45f0158f92d76b46ec9181b25ae6
+Source0:	ftp://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
+# Source0-md5:	f1932e0fbd4641885bfdcc75495c91b7
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
-Patch0:		%{name}-man_from_debian_tar_1.13.25-2.patch
+Patch0:		%{name}-man-debian.patch
 Patch1:		%{name}-man.patch
 Patch2:		%{name}-info.patch
 Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-sock.patch
-Patch5:		%{name}-nolibrt.patch
-Patch6:		%{name}-dots.patch
+Patch5:		%{name}-dots.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.8
@@ -124,14 +123,17 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %prep
 %setup -q
 %patch0 -p2
-%patch1 -p0
+%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
 
 rm -f po/stamp-po
+
+# temporary (configure.ac uses gl_AC_TYPE_LONG_LONG while gettext 0.14
+# defines jm_AC_TYPE_LONG_LONG)
+mv -f m4/{longlong.m4,glonglong.m4}
 
 %build
 %{__gettextize}
