@@ -114,16 +114,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
 
-%lang(de) /usr/share/locale/de/LC_MESSAGES/tar.mo
-%lang(fr) /usr/share/locale/fr/LC_MESSAGES/tar.mo
-%lang(it) /usr/share/locale/it/LC_MESSAGES/tar.mo
-%lang(ko) /usr/share/locale/ko/LC_MESSAGES/tar.mo
-%lang(nl) /usr/share/locale/nl/LC_MESSAGES/tar.mo
-%lang(no) /usr/share/locale/no/LC_MESSAGES/tar.mo
-%lang(pl) /usr/share/locale/pl/LC_MESSAGES/tar.mo
-%lang(pt) /usr/share/locale/pt/LC_MESSAGES/tar.mo
-%lang(sl) /usr/share/locale/sl/LC_MESSAGES/tar.mo
-%lang(sv) /usr/share/locale/sv/LC_MESSAGES/tar.mo
+%lang(de) %{_datadir}/locale/de/LC_MESSAGES/tar.mo
+%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/tar.mo
+%lang(it) %{_datadir}/locale/it/LC_MESSAGES/tar.mo
+%lang(ko) %{_datadir}/locale/ko/LC_MESSAGES/tar.mo
+%lang(nl) %{_datadir}/locale/nl/LC_MESSAGES/tar.mo
+%lang(no) %{_datadir}/locale/no/LC_MESSAGES/tar.mo
+%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/tar.mo
+%lang(pt) %{_datadir}/locale/pt/LC_MESSAGES/tar.mo
+%lang(sl) %{_datadir}/locale/sl/LC_MESSAGES/tar.mo
+%lang(sv) %{_datadir}/locale/sv/LC_MESSAGES/tar.mo
 
 %changelog
 * Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
