@@ -90,17 +90,17 @@ install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
 make prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin libexecdir=$RPM_BUILD_ROOT/sbin install
 
 ln -s ../../bin/tar $RPM_BUILD_ROOT/usr/bin/gtar
-install tar.1 $RPM_BUILD_ROOT/usr/man/man1
+install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 gzip -9nf $RPM_BUILD_ROOT/usr/{info/tar.info*,man/man1/*}
 gzip -9nf README NEWS
 
 %post
-/sbin/install-info /usr/info/tar.info.gz /etc/info-dir
+/sbin/install-info %{_infodir}/tar.info.gz /etc/info-dir
 
 %preun
 if [ $1 = 0 ]; then
-	/sbin/install-info --delete /usr/info/tar.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/tar.info.gz /etc/info-dir
 fi
 
 %clean
@@ -111,8 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS.gz README.gz
 %attr(755, root, root) /bin/*
 %attr(755, root, root) /usr/bin/*
-/usr/info/tar.info*
-/usr/man/man1/*
+%{_infodir}/tar.info*
+%{_mandir}/man1/*
 
 %lang(de) /usr/share/locale/de/LC_MESSAGES/tar.mo
 %lang(fr) /usr/share/locale/fr/LC_MESSAGES/tar.mo
