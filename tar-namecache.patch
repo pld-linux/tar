@@ -1,25 +1,21 @@
---- tar-1.12/src/names.c.mike	Mon Mar  8 12:53:27 1999
-+++ tar-1.12/src/names.c	Mon Mar  8 12:58:38 1999
-@@ -66,7 +66,10 @@
- 	  strncpy (cached_uname, passwd->pw_name, UNAME_FIELD_SIZE);
+diff -ur tar-1.13.orig/src/names.c tar-1.13/src/names.c
+--- tar-1.13.orig/src/names.c	Wed Jul  7 07:46:51 1999
++++ tar-1.13/src/names.c	Wed Aug 25 21:59:57 1999
+@@ -84,6 +84,7 @@
+ 	{
+ 	  cached_no_such_uid = uid;
+ 	  *uname = '\0';
++	  *cached_uname = '\0';
+ 	  return;
  	}
-       else
--	*uname = '\0';
-+	{
-+		*uname = '\0';
-+		*cached_uname = '\0';
-+	}
      }
-   strncpy (uname, cached_uname, UNAME_FIELD_SIZE);
- }
-@@ -90,7 +93,10 @@
- 	  strncpy (cached_gname, group->gr_name, GNAME_FIELD_SIZE);
+@@ -118,6 +119,7 @@
+ 	{
+ 	  cached_no_such_gid = gid;
+ 	  *gname = '\0';
++	  *cached_gname = '\0';
+ 	  return;
  	}
-       else
-+	{
- 	*gname = '\0';
-+	*cached_gname = '\0';
-+	}
      }
-   strncpy (gname, cached_gname, GNAME_FIELD_SIZE);
- }
+Only in tar-1.13/src: names.c.rej
+Only in tar-1.13/src: names.c~
