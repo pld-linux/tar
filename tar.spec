@@ -7,7 +7,7 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.90
-Release:	1
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
