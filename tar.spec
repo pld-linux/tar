@@ -7,7 +7,7 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.92
-Release:	0.1
+Release:	0.2
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
@@ -23,6 +23,7 @@ Patch4:		%{name}-sock.patch
 Patch5:		%{name}-nolibrt.patch
 Patch6:		%{name}-dots.patch
 Patch7:		%{name}-locale.patch
+Patch8:		%{name}-fix-create-options.patch
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.7.5
 BuildRequires:	bison
@@ -131,6 +132,7 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 rm -f po/stamp-po
 
