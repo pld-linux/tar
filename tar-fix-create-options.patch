@@ -1,0 +1,14 @@
+--- tar-1.13.92/src/create.c.pius	2004-01-02 20:23:20.000000000 +0100
++++ tar-1.13.92/src/create.c	2004-01-02 20:27:38.000000000 +0100
+@@ -981,9 +981,9 @@
+ 	  return;
+ 	}
+     }
+-  else if (!recursion_option)
++  if (!recursion_option)
+     return;
+-  else if (one_file_system_option
++  if (one_file_system_option
+ 	   && !top_level
+ 	   && parent_device != stat->stat.st_dev)
+     {
