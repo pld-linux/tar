@@ -1,23 +1,25 @@
-Summary:     GNU Tape Archiver (tar)
-Summary(de): GNU-Magnetband-Archivierprogramm (tar)
-Summary(fr): Programme d'archivage GNU (tar : GNU Tape Archiver).
-Summary(pl): Program do archiwizacji (GNU)
-Summary(tr): Yaygýn kullanýlan yedekleyici
-Name:        tar
-Version:     1.12
-Release:     8
-Copyright:   GPL
-Group:       Utilities/Archiving
-Group(pl):   Narzêdzia/Archiwizacja
-Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:      %{name}-manpage.patch
-Patch1:      %{name}-bzip2.patch
-Patch2:      %{name}-cached_uid.patch
-Patch3:      %{name}-bzip2-locale.patch
-Patch4:      %{name}-pl.po.patch
-Patch5:      %{name}-info.patch
-Prereq:      /sbin/install-info
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary:	GNU Tape Archiver (tar)
+Summary(de):	GNU-Magnetband-Archivierprogramm (tar)
+Summary(fr):	Programme d'archivage GNU (tar : GNU Tape Archiver).
+Summary(pl):	Program do archiwizacji (GNU)
+Summary(tr):	Yaygýn kullanýlan yedekleyici
+Name:		tar
+Version:	1.12
+Release:	8
+Copyright:	GPL
+Group:		Utilities/Archiving
+Group(pl):	Narzêdzia/Archiwizacja
+Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Source1:	tar-pl.po.patch
+Patch0:		tar-manpage.patch
+Patch1:		tar-bzip2.patch
+Patch2:		tar-cached_uid.patch
+Patch3:		tar-bzip2-locale.patch
+Patch4:		tar-info.patch
+Patch5:		tar-pipe.patch
+Patch6:		tar-namecache.patch
+Prereq:		/sbin/install-info
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 GNU `tar' saves many files together into a single tape or disk archive, and
@@ -68,7 +70,9 @@ arþivleri, artýmsal yedeklemeyi destekler.
 %patch3 -p0
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
+install %{SOURCE1} po
 %build
 LIBS="-lbsd" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
@@ -76,6 +80,7 @@ LIBS="-lbsd" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 	--bindir=/bin \
 	--libexecdir=/sbin
 
+(cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
 make
 
 %install
@@ -107,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755, root, root) /bin/*
 %attr(755, root, root) /usr/bin/*
 /usr/info/tar.info*
-%attr(644, root, man) /usr/man/man1/*
+/usr/man/man1/*
 
 %lang(de) /usr/share/locale/de/LC_MESSAGES/tar.mo
 %lang(fr) /usr/share/locale/fr/LC_MESSAGES/tar.mo
