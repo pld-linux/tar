@@ -159,8 +159,6 @@ ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf README NEWS
-
 %find_lang %{name}
 
 %clean
@@ -174,7 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS.gz README.gz
+%doc README NEWS
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) /usr/bin/*
 %{_infodir}/tar.info*
