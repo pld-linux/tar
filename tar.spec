@@ -22,6 +22,7 @@ Patch5:		%{name}-sock.patch
 Patch6:		%{name}-nolibrt.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	bison
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
