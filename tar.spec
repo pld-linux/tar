@@ -107,10 +107,10 @@ fi
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(0644, root, root, 0755)
+%defattr(0644,root,root, 0755)
 %doc NEWS.gz README.gz
-%attr(755, root, root) /bin/*
-%attr(755, root, root) %{_bindir}/*
+%attr(755,root,root) /bin/*
+%attr(755,root,root) %{_bindir}/*
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
 
