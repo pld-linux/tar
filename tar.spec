@@ -7,19 +7,20 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.25
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
 Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.gz
 Source1:	%{name}-non-english-man-pages.tar.bz2
-Patch0:		%{name}-manpage.patch
+Patch0:		%{name}-man_from_debian_tar_1.13.25-2.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-pipe.patch
 Patch3:		%{name}-namecache.patch
 Patch4:		%{name}-error.patch
 Patch5:		%{name}-sock.patch
 Patch6:		%{name}-nolibrt.patch
+Patch7:		%{name}-man.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -118,13 +119,14 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p2
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p0
 
 %build
 chmod -R a+rwX .
