@@ -131,7 +131,7 @@ rm -f missing m4/{ccstdc,codeset,gettext,glibc21,iconv,isc-posix,lcmessage,progt
 autoheader
 aclocal -I m4
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 
 (cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
