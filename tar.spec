@@ -89,7 +89,7 @@ install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
 
 make prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin libexecdir=$RPM_BUILD_ROOT/sbin install
 
-ln -s ../../bin/tar $RPM_BUILD_ROOT/usr/bin/gtar
+ln -s ../../bin/tar $RPM_BUILD_ROOT%{_bindir}/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 gzip -9nf $RPM_BUILD_ROOT/usr/{info/tar.info*,man/man1/*}
@@ -110,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(0644, root, root, 0755)
 %doc NEWS.gz README.gz
 %attr(755, root, root) /bin/*
-%attr(755, root, root) /usr/bin/*
+%attr(755, root, root) %{_bindir}/*
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
 
@@ -161,7 +161,7 @@ rm -rf $RPM_BUILD_ROOT
 - added %doc.
 
 * Tue Aug  4 1998 Jeff Johnson <jbj@redhat.com>
-- add /usr/bin/gtar symlink (change #421)
+- add %{_bindir}/gtar symlink (change #421)
 
 * Tue Jul 14 1998 Jeff Johnson <jbj@redhat.com>
 - Fiddle bindir/libexecdir to get RH install correct.
