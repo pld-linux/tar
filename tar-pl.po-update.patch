@@ -521,7 +521,7 @@
  "  -K, --starting-file=NAME     begin at file NAME in the archive\n"
  "      --strip-path=NUM         strip NUM leading components from file names\n"
  "                               before extraction\n"
-@@ -1156,64 +1156,55 @@
+@@ -1156,64 +1156,54 @@
  "\n"
  "Wybór plików lokalnych:\n"
  "  -C, --directory KATALOG      przej¶cie do KATALOGu\n"
@@ -564,7 +564,6 @@
  "  -K, --starting-file=NAZWA    zaczêcie od pliku o tej NAZWIE w archiwum\n"
 +"      --strip-path=ILE         pominiêcie ILU pocz±tkowych sk³adników z nazw\n"
 +"                                 plików przed rozpakowaniem\n"
-+
  
  # !understand --newer-mtime - rzm
  #: src/tar.c:483
@@ -619,7 +618,7 @@
  "  -w, --interactive     pytanie o potwierdzenie ka¿dej akcji\n"
  "      --confirmation    to samo co -w\n"
  
-@@ -1246,53 +1238,44 @@
+@@ -1246,53 +1238,45 @@
  "\n"
  "Compatibility options:\n"
  "  -o                                 when creating, same as --old-archive\n"
@@ -672,7 +671,7 @@
 +"or a file name starting with `/' or `.', in which case the file's date is used.\n"
  "*This* `tar' defaults to `--format=%s -f%s -b%d'.\n"
  msgstr ""
--"\n"
+ "\n"
 -"GNU tar nie mo¿e czytaæ ani zapisywaæ archiwów `--posix'. Je¿eli w "
 -"¶rodowisku\n"
 -"jest ustawiona zmienna POSIXLY_CORRECT rozszerzenia GNU s± wy³±czone przy\n"
