@@ -4,8 +4,8 @@ Summary(fr):	Programme d'archivage GNU (tar : GNU Tape Archiver).
 Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.12
-Release:	10
+Version:	1.13
+Release:	1
 Copyright:	GPL
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
@@ -69,8 +69,8 @@ arþivleri, artýmsal yedeklemeyi destekler.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p0
-%patch2 -p0
+%patch1 -p1
+#%patch2 -p0
 %patch3 -p0
 %patch4 -p1
 %patch5 -p1
@@ -78,6 +78,7 @@ arþivleri, artýmsal yedeklemeyi destekler.
 
 install %{SOURCE1} po
 %build
+chmod -R a+rwX .
 gettextize --copy --force
 aclocal
 automake
