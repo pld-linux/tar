@@ -1,6 +1,6 @@
 Summary:	A GNU file archiving program
 Summary(de):	GNU-Magnetband-Archivierprogramm (tar)
-knSummary(es):	GNU Tape Archiver (tar)
+Summary(es):	GNU Tape Archiver (tar)
 Summary(fr):	Programme d'archivage GNU (tar: GNU Tape Archiver)
 Summary(pl):	Program do archiwizacji (GNU)
 Summary(pt_BR):	GNU Tape Archiver (tar)
