@@ -1,8 +1,8 @@
---- /dev/null	Mon Dec 31 23:00:00 1979
-+++ tar-1.11.8/tar.1	Sun Jul 23 21:28:52 1995
+--- tar-1.13.18/tar.1.manpage	Mon Oct 30 12:52:03 2000
++++ tar-1.13.18/tar.1	Mon Oct 30 12:56:15 2000
 @@ -0,0 +1,335 @@
-+.\" @(#)tar.1 1.11.1 93/19/22 PJV;
-+.TH TAR 1 "22 September 1993"
++.\" @(#)tar.1 1.13.14 2000/10/30 Bero;
++.TH TAR 1 "30 October 2000"
 +.SH NAME
 +tar \- The GNU version of the tar archiving utility
 +.SH SYNOPSIS
@@ -46,6 +46,9 @@
 +]
 +[
 +.B -i, --ignore-zeros
++]
++[
++.B -j, --bzip
 +]
 +[
 +.B --ignore-failed-read
@@ -102,7 +105,7 @@
 +.B -S, --sparse
 +]
 +[
-+.B -T, --files-from F
++.B -T, -I, --files-from=F
 +]
 +[
 +.B --null	
@@ -238,6 +241,9 @@
 +.B -i, --ignore-zeros	
 +ignore blocks of zeros in archive (normally mean EOF)
 +.TP
++.B -j, --bzip
++filter the archive through bzip2
++.TP
 +.B --ignore-failed-read	
 +don't exit with non-zero status on unreadable files
 +.TP
@@ -292,7 +298,7 @@
 +.B -S, --sparse		
 +handle sparse files efficiently
 +.TP 
-+.B -T, --files-from F	
++.B -T, -I, --files-from=F	
 +get names to extract or create from file F
 +.TP
 +.B --null			
@@ -330,9 +336,3 @@
 +.TP
 +.B --use-compress-program PROG
 +filter the archive through PROG (which must accept -d)
-+.TP
-+.B --block-compress	
-+block the output of compression program for tapes
-+.TP
-+.B -[0-7][lmh]		
-+specify drive and density
