@@ -1,0 +1,38 @@
+--- tar.1.orig	Wed Apr 10 19:56:21 2002
++++ tar.1	Wed Apr 10 21:14:42 2002
+@@ -149,19 +149,19 @@
+ .TP
+ .I filename1 [ filename2, ... filenameN ] 
+ .TP
+-.I directory1 [ directory2, ...directoryN ]
++.I directory1 [ directory2, ... directoryN ]
+ .SH DESCRIPTION
+ .LP
+ This manual page documents the GNU version of
+-.B tar
+-, an archiving program designed to store and extract files from 
++.B tar ,
++an archiving program designed to store and extract files from 
+ an archive file known as a 
+-.IR tarfile.
++.IR tarfile .
+ A 
+ .IR tarfile 
+ may be made on a tape drive, however, it is also common
+ to write a
+-.IR tarfile
++.I tarfile
+ to a normal file. 
+ The first argument to 
+ .B tar
+@@ -311,7 +311,9 @@
+ create archive with volume name NAME
+ .TP 
+ .B --version		
+-print tar program version number
++print
++.B tar
++program version number
+ .TP
+ .B -w, --interactive, --confirmation	
+ ask for confirmation for every action
