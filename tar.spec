@@ -7,14 +7,14 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.22
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
 Group(de):	Applikationen/Archivierung
 Group(pl):	Aplikacje/Archiwizacja
 Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.gz
-Source1:	%{name}.1.pl
+Source1:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-manpage.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-pipe.patch
@@ -137,13 +137,13 @@ automake -a -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1,%{_mandir}/pl/man1}
+install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 ln -s %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 gzip -9nf README NEWS
 
@@ -165,4 +165,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/*
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
+%lang(de) %{_mandir}/de/man1/*
+%lang(es) %{_mandir}/es/man1/*
+%lang(fi) %{_mandir}/fi/man1/*
+%lang(fr) %{_mandir}/fr/man1/*
+%lang(hu) %{_mandir}/hu/man1/*
+%lang(id) %{_mandir}/id/man1/*
+%lang(it) %{_mandir}/it/man1/*
+%lang(ja) %{_mandir}/ja/man1/*
+%lang(nl) %{_mandir}/nl/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
