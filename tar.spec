@@ -10,15 +10,15 @@ Epoch:		1
 License:	GPL
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
-Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.%{name}.gz
-Source1:	tar.1.pl
-Patch0:		tar-manpage.patch
-Patch1:		tar-info.patch
-Patch2:		tar-pipe.patch
-Patch3:		tar-namecache.patch
-Patch4:		tar-excluded_name.patch
-Patch5:		tar-fnmatch.patch
-Patch6:		tar-ia64.patch
+Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.gz
+Source1:	%{name}.1.pl
+Patch0:		%{name}-manpage.patch
+Patch1:		%{name}-info.patch
+Patch2:		%{name}-pipe.patch
+Patch3:		%{name}-namecache.patch
+Patch4:		%{name}-excluded_name.patch
+Patch5:		%{name}-fnmatch.patch
+Patch6:		%{name}-ia64.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
