@@ -95,6 +95,8 @@ install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 gzip -9nf $RPM_BUILD_ROOT/usr/{info/tar.info*,man/man1/*}
 gzip -9nf README NEWS
 
+%find_lang %{name}
+
 %post
 /sbin/install-info %{_infodir}/tar.info.gz /etc/info-dir
 
@@ -106,24 +108,13 @@ fi
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(0644,root,root, 0755)
 %doc NEWS.gz README.gz
 %attr(755,root,root) /bin/*
 %attr(755,root,root) %{_bindir}/*
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
-
-%lang(de) %{_datadir}/locale/de/LC_MESSAGES/tar.mo
-%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/tar.mo
-%lang(it) %{_datadir}/locale/it/LC_MESSAGES/tar.mo
-%lang(ko) %{_datadir}/locale/ko/LC_MESSAGES/tar.mo
-%lang(nl) %{_datadir}/locale/nl/LC_MESSAGES/tar.mo
-%lang(no) %{_datadir}/locale/no/LC_MESSAGES/tar.mo
-%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/tar.mo
-%lang(pt) %{_datadir}/locale/pt/LC_MESSAGES/tar.mo
-%lang(sl) %{_datadir}/locale/sl/LC_MESSAGES/tar.mo
-%lang(sv) %{_datadir}/locale/sv/LC_MESSAGES/tar.mo
 
 %changelog
 * Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
