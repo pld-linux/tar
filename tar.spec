@@ -5,7 +5,7 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.17
-Release:	1
+Release:	6
 Epoch:		1
 License:	GPL
 Group:		Utilities/Archiving
@@ -16,6 +16,9 @@ Patch0:		tar-manpage.patch
 Patch1:		tar-info.patch
 Patch2:		tar-pipe.patch
 Patch3:		tar-namecache.patch
+Patch4:		tar-excluded_name.patch
+Patch5:		tar-fnmatch.patch
+Patch6:		tar-ia64.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
@@ -105,6 +108,9 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %build
 chmod -R a+rwX .
