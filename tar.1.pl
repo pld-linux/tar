@@ -169,15 +169,6 @@ Koñcowymi argumentami programu
 s± nazwy plików lub katalogów, które powinny zostaæ zarchiwizowane. U¿ycie
 nazwy katalogu oznacza, ¿e znajduj±ce siê w nim podkatalogi równie¿ powinny
 zostaæ zarchiwizowane.
-.SH "TYPOWE ZASTOSOWANIA"
-.TP 
-.B tar zxvf plik.tar.gz [lub plik.tgz]
-rozpakowuje archiwum tar, dekompresuj±c je uprzednio z u¿yciem gzip 
-(literka \fBz\fR opcji).
-.TP
-.B tar cvfz plik.tar.gz plik1 plik2 plik3 ... plikN
-tworzy archiwum o nazwie \fIplik.tar.gz\fR z³o¿one z podanych plików.
-Zamiast plików mo¿na podawaæ równie¿ katalogi.
 .SH "FUNKCJE"
 .TP
 .B Zawsze nale¿y u¿yæ jednej z nastêpuj±cych opcji:
@@ -214,84 +205,84 @@ pozostawienie oryginalnego czasu ostatniego dostêpu na dearchiwizowanych plikach
 rozmiar bloku ma byæ równy Nx512 bajtów (domy¶lnie N=20)
 .TP
 .B -B, --read-full-blocks	
-zmienia rozmiar bloku podczas czytania archiwum (do u¿ywania z nazwanymi
+zmieniaj rozmiar bloku podczas czytania archiwum (do u¿ywania z nazwanymi
 potokami 4.2BSD)
 .TP 
 .B -C, --directory DIR	
-zmienia katalog na DIR
+zmieñ katalog na DIR
 .TP 
 .B --checkpoint		
-wypisuje nazwy katalogów w miarê czytania archiwum
+wypisuj nazwy katalogów w miarê czytania archiwum
 .TP
 .B -f, --file [HOSTNAME:]F
-u¿ywa podanego pliku z archiwum lub urz±dzenia F (domy¶lnie /dev/rmt0)
+u¿yj podanego pliku z archiwum lub urz±dzenia F (domy¶lnie /dev/rmt0)
 .TP
 .B --force-local
 plik z archiwum jest lokalny nawet, je¿eli w jego nazwie wystêpuje dwukropek
 .TP 
 .B -F, --info-script F --new-volume-script F 
-na koñcu ka¿dej ta¶my uruchami podany skrypt (implikuje funkcjonalno¶æ opcji \-M)
+na koñcu ka¿dej ta¶my uruchom podany skrypt (implikuje funkcjonalno¶æ opcji \-M)
 .TP
 .B -G, --incremental	
-tworzy/wypisuje zawarto¶æ/dearchiwizuje archiwum przyrostowe w starym formacie
+utwórz/wypisz zawarto¶æ/dearchiwizuj archiwum przyrostowe w starym formacie
 GNU
 .TP
 .B -g, --listed-incremental F 
-tworzy/wypisuje zawarto¶æ/dearchiwizuje archiwum przyrostowe w nowym formacie
+utwórz/wypisz zawarto¶æ/dearchiwizuj archiwum przyrostowe w nowym formacie
 GNU
 .TP 
 .B -h, --dereference	
-nie archiwizuje dowi±zañ symbolicznych, tylko pliki, na które one wskazuj±
+nie archiwizuj dowi±zañ symbolicznych, tylko pliki, na które one wskazuj±
 .TP
 .B -i, --ignore-zeros	
-ignoruje bloki zawieraj±ce same zera (normalnie taki blok w archiwum oznacza
+ignoruj bloki zawieraj±ce same zera (normalnie taki blok w archiwum oznacza
 koniec pliku)
 .TP
 .B --ignore-failed-read	
-zakazuje koñczenia dzia³ania programu z niezerowym kodem wyj¶cia po napotkaniu
+nie koñcz dzia³ania programu z niezerowym kodem wyj¶cia po napotkaniu
 plików, które nie daj± siê odczytaæ
 .TP
 .B -k, --keep-old-files	
 ochrona istniej±cych plików; nie bêd± nadpisywane plikami z archiwum
 .TP
 .B -K, --starting-file F	
-zaczyna ekstrakcjê z archiwum od pliku F
+zacznij ekstrakcjê z archiwum od pliku F
 .TP
 .B -l, --one-file-system	
-archiwizuje pliki tylko z bie¿±cego systemu plików
+archiwizuj pliki tylko z bie¿±cego systemu plików
 .TP
 .B -L, --tape-length N	
 zmiana ta¶my po zapisaniu N*1024 bajtów
 .TP
 .B -m, --modification-time	
-nie dearchiwizuje czasu modyfikacji plików
+nie dearchiwizuj czasu modyfikacji plików
 .TP
 .B -M, --multi-volume	
-tworzy/wypisuje zawarto¶æ/dearchiwizuje archiwum wieloczê¶ciowe
+utwórz/wypisz zawarto¶æ/dearchiwizuj archiwum wieloczê¶ciowe
 .TP
 .B -N, --after-date DATA, --newer DATA
-archiwizuje wy³±cznie pliki nowsze, ni¿ DATA
+archiwizuj wy³±cznie pliki nowsze, ni¿ DATA
 .TP
 .B -o, --old-archive, --portability	
-zapisuje archiwum w formacie V7, nie ANSI
+zapisz archiwum w formacie V7, nie ANSI
 .TP
 .B -O, --to-stdout		
-dearchiwizuje pliki na standardowe wyj¶cie
+dearchiwizuj pliki na standardowe wyj¶cie
 .TP
 .B -p, --same-permissions, --preserve-permissions 
-dearchiwizuje wszystkie informacje o prawach dostêpu
+dearchiwizuj wszystkie informacje o prawach dostêpu
 .TP
 .B -P, --absolute-paths	
-nie usuwa z nazw plików pocz±tkowych znaków '/'
+nie usuwaj z nazw plików wiod±cych znaków '/'
 .TP
 .B --preserve		
 takie samo dzia³anie, jak opcje \-p \-s
 .TP
 .B -R, --record-number	
-przy ka¿dej wiadomo¶ci pokazuje numer rekordu wewn±trz archiwum
+przy ka¿dej wiadomo¶ci pokazuj numer rekordu wewn±trz archiwum
 .TP 
 .B --remove-files		
-usuwa pliki po dodaniu ich do archiwum
+usuwaj pliki po dodaniu ich do archiwum
 .TP
 .B -s, --same-order, --preserve-order	
 lista nazw plików do dearchiwizacji jest sortowana, by pasowaæ do archiwum
@@ -311,7 +302,7 @@ opcja -T odczytuje nazwy plików zakoñczone znakiem '\\0', opcja -C wówczas nie
 dzia³a
 .TP
 .B --totals		
-zapisuje ca³kowit± liczbê bajtów zapisanych przez --create
+zapisz ca³kowit± liczbê bajtów zapisanych przez --create
 .TP
 .B -v, --verbose		
 wypisywanie nazw wszystkich plików
