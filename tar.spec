@@ -1,24 +1,20 @@
-Summary:	GNU Tape Archiver (tar)
+Summary:	A GNU file archiving program
 Summary(de):	GNU-Magnetband-Archivierprogramm (tar)
 Summary(fr):	Programme d'archivage GNU (tar : GNU Tape Archiver).
 Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13
+Version:	1.13.11
 Release:	1
 Copyright:	GPL
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Source1:	tar-pl.po.patch
-Source2:	tar.1.pl
+Source1:	tar.1.pl
 Patch0:		tar-manpage.patch
-Patch1:		tar-bzip2.patch
-Patch2:		tar-cached_uid.patch
-Patch3:		tar-bzip2-locale.patch
-Patch4:		tar-info.patch
-Patch5:		tar-pipe.patch
-Patch6:		tar-namecache.patch
+Patch1:		tar-info.patch
+Patch2:		tar-pipe.patch
+Patch3:		tar-namecache.patch
 Prereq:		/sbin/install-info
 Buildroot:	/tmp/%{name}-%{version}-root
 
@@ -26,33 +22,68 @@ Buildroot:	/tmp/%{name}-%{version}-root
 %define		_libexecdir	/sbin
 
 %description
-GNU `tar' saves many files together into a single tape or disk archive, and
-can restore individual files from the archive. It includes multivolume
-support, the ability to archive sparse files, automatic archive
-compression/decompression, remote archives and special features that allow
-`tar' to be used for incremental and full backups. If you wish to do remote
-backups with tar, you will need to install the `rmt' package as well.
+The GNU tar program saves many files together into one archive and can
+restore individual files (or all of the files) from the archive. Tar can
+also be used to add supplemental files to an archive and to update or list
+files in the archive.
+
+Tar includes multivolume support, automatic archive compression/
+decompression, the ability to perform remote archives and the ability to
+perform incremental and full backups.
+
+If you want to use Tar for remote backups, you'll also need to install the
+rmt package.
+
+You should install the tar package, because you'll find its compression and
+decompression utilities essential for working with files.
 
 %description -l de
-GNU 'tar' speichert viele Dateien zusammen in ein einzelnes Band- oder
-Disk-Archiv und kann einzelne Dateien aus dem Archiv wiederherstellen. Es
-beinhaltet Multivolume-Support, die Fähigkeit, seltene Dateien zu
-archivieren, automatische Archiv-Komprimierung und Dekomprimierung, Archive
-an entfernten Standorten und Spezialfunktionen, die es ermöglichen, 'tar'
-für inkrementelle und vollständige Backups einzusetzen. Wenn Sie vorhaben,
-Remote-Backups mit tar zu erstellen, dann benötigen Sie dazu das rmt-Paket.
+Das GNU tar-Programm speichert mehrere Dateien in ein Archiv, und kann
+einzelne Dateien daraus wiederherstellen (oder auch alle Dateien). Tar kann
+auch benutzt werden, um einem Archiv Dateien hinzuzufügen, und um die Liste
+der Dateien im Archiv anzuzeigen oder zu verändern.
+
+Tar enthält multivolume-Support, automatische
+Archivkompression/dekompression, the Möglichkeit, Dateien per Netzwerk zu
+archivieren und die Möglichkeit zu inkrementellen backups.
+
+Wenn Sie tar für Netzwerkbackups benutzen wollen, brauchen Sie außerdem das
+rmt-Paket.
+
+Sie sollten tar installieren, da es wichtig zur Dateibehandlung ist.
 
 %description -l fr
-GNU tar sauvegarde plusieurs fichiers sur une seule archive sur bande ou sur
-disque et peut restaurer les fichiers individuellement à partir de
-l'archive. Il comprend une gestion multi-volumes, la possibilité d'archiver
-des fichiers éparpillés, la compression/décompression automatique de
-l'archive, les archives distantes et des caractéristiques spéciales
-permettant à tar d'être utilisé pour des sauvegardes incrémentales et
-complètes. Si vous souhaitez faire des sauvegardes distantes avec tar, vous
-devrez installer aussi le paquetage « rmt ».
+Le programme GNU tar permet de regrouper plusieurs fichiers en une seule
+archive et d'effectuer diverses opérations sur cette archive (extraction
+d'un fichier particulier, mise à jour, ajout d'un nouveau fichier, ...).
+
+Tar gère les archives multi-volumes, la compression et la décompression de
+manière transparente ainsi que la possibilité de réaliser des sauvegardes
+incrémentales et des sauvegardes complètes.
+
+Si vous comptez utiliser Tar pour des sauvegardes distantes, vous devriez
+également installer le programme rmt.
+
+Tar devrait être installé sur tout système car ses capacité de
+(dé)compression sont essentielles pour travailler sur les fichiers.
+
+Pour profiter pleinement de tar, vous devriez installer les compresseurs
+gzip et/ou bzip2.
 
 %description -l pl
+Program GNU tar s³u¿y do zapisywania wielu plików w pojedynczym archiwum i
+moze tak¿e s³u¿yæ do odzyskiwania z tak prepaowanych archiwów pojedynczych
+plików (lub wszystkich). Za jego pomoc± mo¿na tak¿e dodwaæ nowe pliki do ju¿
+istiej±cego archiwum.
+
+GNU tar umo¿liwia robienie wieloczê¶ciowych archiwów (multivolume archive),
+automatyczn± kompresjê i dekompresjê samego archiwum a tak¿e ma mo¿liwo¶æ
+operowania na zdalnych archiiwach co jest przydatne przy sporz±dzaniu
+przyrostowych i pe³nych archiwów zasobów.
+
+Je¿eli zamierzasz u¿ywaæ rprogramu tar do operowania na zdalnych archiwach
+powiniene¶ doinstalowaæ pakiet rmt.
+
 GNU tar s³u¿y do zapisywania wielu plików na ta¶mê lub dysk. Mo¿e odtwarzaæ
 pojedyñcze pliki z archiwum. Umo¿liwia zapis du¿ego archiwum z podzia³em na
 wiele no¶ników. Tar obs³uguje tak¿e automatyczn± kompresjê/dekompresjê i
@@ -70,19 +101,12 @@ arþivleri, artýmsal yedeklemeyi destekler.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-#%patch2 -p0
-%patch3 -p0
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
+%patch2 -p1
+%patch3 -p1
 
-install %{SOURCE1} po
 %build
 chmod -R a+rwX .
 gettextize --copy --force
-aclocal
-automake
-autoconf
 LIBS="-lbsd" ; export LIBS
 LDFLAGS="-s" ; export LDFLAGS
 %configure
@@ -98,7 +122,7 @@ make DESTDIR=$RPM_BUILD_ROOT install
 
 ln -s %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/pl/man1
+install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 
 gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/tar.info*,%{_mandir}/man1/*} \
 	$RPM_BUILD_ROOT%{_mandir}/*/man1/* \
