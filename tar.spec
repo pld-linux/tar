@@ -7,7 +7,7 @@ Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
 Version:	1.13.94
-Release:	1
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
@@ -22,7 +22,6 @@ Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-sock.patch
 Patch5:		%{name}-nolibrt.patch
 Patch6:		%{name}-dots.patch
-Patch7:		%{name}-iconv.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.8
@@ -126,14 +125,12 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %setup -q
 %patch0 -p2
 %patch1 -p0
-# to be fixed
-#%patch2 -p1
-# to be fixed
+%patch2 -p1
+# needs update
 #%patch3 -p1
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
-#%patch7 -p1
 
 rm -f po/stamp-po
 
