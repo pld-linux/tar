@@ -5,15 +5,16 @@ Summary(pl): Program do archiwizacji (GNU)
 Summary(tr): Yaygýn kullanýlan yedekleyici
 Name:        tar
 Version:     1.12
-Release:     6
+Release:     7
 Copyright:   GPL
 Group:       Utilities/Archiving
 Source0:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:      tar-1.11.8-manpage.patch
+Patch0:      tar-manpage.patch
 Patch1:      tar-bzip2.patch
 Patch2:      tar-cached_uid.patch
 Patch3:      tar-bzip2-locale.patch
-Patch4:      tar-1.12-pl.po.patch
+Patch4:      tar-pl.po.patch
+Patch5:      tar-info.patch
 Prereq:      /sbin/install-info
 Buildroot:   /tmp/%{name}-%{version}-root
 
@@ -65,15 +66,16 @@ arþivleri, artýmsal yedeklemeyi destekler.
 %patch2 -p0
 %patch3 -p0
 %patch4 -p1
+%patch5 -p1
 
 %build
-LIBS=-lbsd CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s ./configure \
+LIBS="-lbsd" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
 	--prefix=/usr \
 	--bindir=/bin \
 	--libexecdir=/sbin
 
 make
-# CFLAGS="$RPM_OPT_FLAGS -DHAVE_STRERROR -D_GNU_SOURCE" LIBS=-lbsd
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -82,17 +84,17 @@ install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
 make prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin libexecdir=$RPM_BUILD_ROOT/sbin install
 
 ln -s ../../bin/tar $RPM_BUILD_ROOT/usr/bin/gtar
-gzip -9nf $RPM_BUILD_ROOT/usr/info/tar.info*
-
 install tar.1 $RPM_BUILD_ROOT/usr/man/man1
 
+gzip -9nf $RPM_BUILD_ROOT/usr/{info/tar.info*,man/man1/*}
+
 %post
-/sbin/install-info /usr/info/tar.info.gz /usr/info/dir --entry \
-"* tar: (tar).                                   Making tape (or disk) archives."
+/sbin/install-info /usr/info/tar.info.gz /etc/info-dir
 
 %preun
-/sbin/install-info --delete /usr/info/tar.info.gz /usr/info/dir --entry \
-"* tar: (tar).                                   Making tape (or disk) archives."
+if [ $1 = 0 ]; then
+	/sbin/install-info --delete /usr/info/tar.info.gz /etc/info-dir
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -117,6 +119,11 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sv) /usr/share/locale/sv/LC_MESSAGES/tar.mo
 
 %changelog
+* Mon Dec 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.12-7]
+- standarized {un}registering info pages (added tar-info.patch),
+- added gzipping man pages.
+
 * Sat Nov 21 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.12-6]
 - added {un}registering info page in %post %preun with --entry.
