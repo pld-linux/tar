@@ -23,6 +23,7 @@ Patch4:		%{name}-sock.patch
 Patch5:		%{name}-nolibrt.patch
 Patch6:		%{name}-dots.patch
 Patch7:		%{name}-iconv.patch
+URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.8
 BuildRequires:	bison
