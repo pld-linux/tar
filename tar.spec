@@ -110,7 +110,6 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
 
 %build
 chmod -R a+rwX .
@@ -118,6 +117,9 @@ gettextize --copy --force
 LIBS="-lbsd" ; export LIBS
 LDFLAGS="-s" ; export LDFLAGS
 %configure
+%ifarch ia64
+patch -p1 < %{PATCH3}
+%endif
 
 (cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
 %{__make}
