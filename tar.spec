@@ -112,7 +112,7 @@ LDFLAGS="-s" ; export LDFLAGS
 %configure
 
 (cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
