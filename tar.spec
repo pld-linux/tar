@@ -5,16 +5,17 @@ Summary(pl): Program do archiwizacji (GNU)
 Summary(tr): Yaygýn kullanýlan yedekleyici
 Name:        tar
 Version:     1.12
-Release:     7
+Release:     8
 Copyright:   GPL
 Group:       Utilities/Archiving
-Source0:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:      tar-manpage.patch
-Patch1:      tar-bzip2.patch
-Patch2:      tar-cached_uid.patch
-Patch3:      tar-bzip2-locale.patch
-Patch4:      tar-pl.po.patch
-Patch5:      tar-info.patch
+Group(pl):   Narzêdzia/Archiwizacja
+Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Patch0:      %{name}-manpage.patch
+Patch1:      %{name}-bzip2.patch
+Patch2:      %{name}-cached_uid.patch
+Patch3:      %{name}-bzip2-locale.patch
+Patch4:      %{name}-pl.po.patch
+Patch5:      %{name}-info.patch
 Prereq:      /sbin/install-info
 Buildroot:   /tmp/%{name}-%{version}-root
 
@@ -87,6 +88,7 @@ ln -s ../../bin/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT/usr/man/man1
 
 gzip -9nf $RPM_BUILD_ROOT/usr/{info/tar.info*,man/man1/*}
+gzip -9nf README NEWS
 
 %post
 /sbin/install-info /usr/info/tar.info.gz /etc/info-dir
@@ -101,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(0644, root, root, 0755)
-%doc NEWS README
+%doc NEWS.gz README.gz
 %attr(755, root, root) /bin/*
 %attr(755, root, root) /usr/bin/*
 /usr/info/tar.info*
@@ -119,6 +121,12 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sv) /usr/share/locale/sv/LC_MESSAGES/tar.mo
 
 %changelog
+* Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [1.12-8]
+- added Group(pl)
+- added gzipping documentation
+- cosmetic changes
+
 * Mon Dec 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.12-7]
 - standarized {un}registering info pages (added tar-info.patch),
