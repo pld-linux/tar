@@ -1,10 +1,12 @@
 Summary:	A GNU file archiving program
 Summary(de):	GNU-Magnetband-Archivierprogramm (tar)
+knSummary(es):	GNU Tape Archiver (tar)
 Summary(fr):	Programme d'archivage GNU (tar: GNU Tape Archiver)
 Summary(pl):	Program do archiwizacji (GNU)
+Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13.19
+Version:	1.13.20
 Release:	1
 Epoch:		1
 License:	GPL
@@ -17,8 +19,10 @@ Patch0:		%{name}-manpage.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-pipe.patch
 Patch3:		%{name}-namecache.patch
-Patch4:		%{name}-excluded_name.patch
-Patch5:		%{name}-fail.patch
+Patch4:		%{name}-error.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	bison
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
@@ -49,6 +53,15 @@ zu archivieren und die Möglichkeit zu inkrementellen backups.
 
 Wenn Sie tar für Netzwerkbackups benutzen wollen, brauchen Sie
 außerdem das rmt-Paket.
+
+%description -l es
+GNU "tar" guarda varios archivos juntos, en una cinta o archivo de
+disco, y puede restaurar archivos individuales de este almacenaje.
+Incluye soporte para multivolúmenes, habilidad de almacenar archivos
+dispersos, compresión/descompresión automática, almacenajes remotos y
+características especiales que permiten "tar" ser usado para backups
+incrementales y completos. Si deseas hacer backups remotos con tar, te
+hará falta instalar el paquete "rmt".
 
 %description -l fr
 Le programme GNU tar permet de regrouper plusieurs fichiers en une
@@ -87,6 +100,15 @@ kompresjê/dekompresjê i archiwa zdalne. Posiada specjalne opcje do
 robienia pe³nych i przyrostowych kopii bezpieczeñstwa. Aby tworzyæ
 zdalne archiwa tar-a trzeba zainstalowaæ pakiet rmt.
 
+%description -l pt_BR
+GNU "tar" guarda vários arquivos juntos em uma fita ou arquivo de
+disco, e pode restaurar arquivos individuais desta armazenagem. Ele
+inclui suporte para multi-volumes, habilidade de armazenar arquivos
+dispersos, compressão/descompressão automática, armazenamentos remotos
+e características especiais que permitem "tar" ser usado para backups
+incrementais e completos. Se você deseja fazer backups remotos com
+tar, você irá precisar instalar o pacote "rmt".
+
 %description -l tr
 GNU tar, birden çok dosyayý tek bir manyetik bant ya da disk üzerinde
 arþivleyebildiði gibi, bu dosyalarýn arþivden tek tek geri
@@ -100,11 +122,15 @@ sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
 
 %build
 chmod -R a+rwX .
-%configure2_13
+rm -f missing m4/{ccstdc,gettext,isc-posix,lcmessage,progtest}.m4
+autoheader
+aclocal -I m4
+autoconf
+automake -a -c
+%configure
 
 (cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
 %{__make}
