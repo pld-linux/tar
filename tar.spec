@@ -6,13 +6,13 @@ Summary(pl):	Program do archiwizacji (GNU)
 Summary(pt_BR):	GNU Tape Archiver (tar)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13.90
-Release:	0.2
+Version:	1.13.91
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Archiving
 Source0:	ftp://alpha.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	0f092ac2177a0edfd5368ed042650266
+# Source0-md5:	0fdffa97f67ff926579c9ada60b50780
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-man_from_debian_tar_1.13.25-2.patch
