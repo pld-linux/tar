@@ -11,6 +11,7 @@ Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	tar-pl.po.patch
+Source2:	tar.1.pl
 Patch0:		tar-manpage.patch
 Patch1:		tar-bzip2.patch
 Patch2:		tar-cached_uid.patch
@@ -20,6 +21,9 @@ Patch5:		tar-pipe.patch
 Patch6:		tar-namecache.patch
 Prereq:		/sbin/install-info
 Buildroot:	/tmp/%{name}-%{version}-root
+
+%define		_exec_prefix	/
+%define		_libexecdir	/sbin
 
 %description
 GNU `tar' saves many files together into a single tape or disk archive, and
@@ -74,26 +78,30 @@ arþivleri, artýmsal yedeklemeyi destekler.
 
 install %{SOURCE1} po
 %build
-LIBS="-lbsd" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=/usr \
-	--bindir=/bin \
-	--libexecdir=/sbin
+gettextize --copy --force
+aclocal
+automake
+autoconf
+LIBS="-lbsd" ; export LIBS
+LDFLAGS="-s" ; export LDFLAGS
+%configure
 
 (cd doc; cp stamp-vti version.texi; touch *; makeinfo --force tar.texi)
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
+install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1,%{_mandir}/pl/man1}
 
-make prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin libexecdir=$RPM_BUILD_ROOT/sbin install
+make DESTDIR=$RPM_BUILD_ROOT install
 
-ln -s ../../bin/tar $RPM_BUILD_ROOT%{_bindir}/gtar
+ln -s %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/{info/tar.info*,man/man1/*}
-gzip -9nf README NEWS
+gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/tar.info*,%{_mandir}/man1/*} \
+	$RPM_BUILD_ROOT%{_mandir}/*/man1/* \
+	README NEWS
 
 %find_lang %{name}
 
@@ -111,10 +119,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(0644,root,root, 0755)
 %doc NEWS.gz README.gz
-%attr(755,root,root) /bin/*
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) /usr/bin/*
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
 
 %changelog
 * Thu Feb 10 1999 Micha³ Kuratczyk <kurkens@polbox.com>
