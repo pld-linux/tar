@@ -1,6 +1,6 @@
---- tar-1.13.90/doc/tar.texi.orig	2003-10-19 21:38:08.000000000 +0200
-+++ tar-1.13.90/doc/tar.texi	2003-11-14 22:17:26.532899808 +0100
-@@ -519,14 +519,9 @@
+--- tar-1.13.94/doc/tar.texi.orig	Sun Feb 29 14:05:50 2004
++++ tar-1.13.94/doc/tar.texi	Wed Apr 14 12:25:54 2004
+@@ -520,14 +520,9 @@
  @end quotation
  @end copying
  
@@ -12,7 +12,7 @@
 -
 -@dircategory Individual utilities
 -@direntry
--* tar: (tar)tar invocation.                     Invoking @GNUTAR{}
+-* tar: (tar)tar invocation.                     Invoking @GNUTAR{}.
 +* Tar: (tar).				Making tape (or disk) archives
  @end direntry
  
