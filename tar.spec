@@ -4,7 +4,7 @@ Summary(fr):	Programme d'archivage GNU (tar : GNU Tape Archiver).
 Summary(pl):	Program do archiwizacji (GNU)
 Summary(tr):	Yaygýn kullanýlan yedekleyici
 Name:		tar
-Version:	1.13.15
+Version:	1.13.16
 Release:	1
 Copyright:	GPL
 Group:		Utilities/Archiving
