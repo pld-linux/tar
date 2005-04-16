@@ -26,7 +26,7 @@ URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
 BuildRequires:	bison
-BuildRequires:	gettext-devel >= 0.14.1
+BuildRequires:	gettext-devel >= 0.14.3
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -136,6 +136,8 @@ rm -f po/stamp-po
 # temporary (configure.ac uses gl_AC_TYPE_LONG_LONG while gettext 0.14
 # defines jm_AC_TYPE_LONG_LONG)
 mv -f m4/{longlong.m4,glonglong.m4}
+
+sed -i -e 's/jm_AC_TYPE_UINTMAX_T/gl_AC_TYPE_UINTMAX_T/' configure.ac
 
 %build
 %{__gettextize}
