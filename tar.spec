@@ -135,7 +135,7 @@ rm -f po/stamp-po
 
 # temporary (configure.ac uses gl_AC_TYPE_LONG_LONG while gettext 0.14
 # defines jm_AC_TYPE_LONG_LONG)
-mv -f m4/{longlong.m4,glonglong.m4}
+mv -f m4/{,g}longlong.m4
 
 sed -i -e 's/jm_AC_TYPE_UINTMAX_T/gl_AC_TYPE_UINTMAX_T/' configure.ac
 
