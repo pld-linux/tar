@@ -1,10 +1,10 @@
 Summary:	A GNU file archiving program
-Summary(de):	GNU-Magnetband-Archivierprogramm (tar)
-Summary(es):	GNU Tape Archiver (tar)
-Summary(fr):	Programme d'archivage GNU (tar: GNU Tape Archiver)
-Summary(pl):	Program do archiwizacji (GNU)
-Summary(pt_BR):	GNU Tape Archiver (tar)
-Summary(tr):	Yaygın kullanılan yedekleyici
+Summary(de.UTF-8):   GNU-Magnetband-Archivierprogramm (tar)
+Summary(es.UTF-8):   GNU Tape Archiver (tar)
+Summary(fr.UTF-8):   Programme d'archivage GNU (tar: GNU Tape Archiver)
+Summary(pl.UTF-8):   Program do archiwizacji (GNU)
+Summary(pt_BR.UTF-8):   GNU Tape Archiver (tar)
+Summary(tr.UTF-8):   YaygÄ±n kullanÄ±lan yedekleyici
 Name:		tar
 Version:	1.16.1
 Release:	1
@@ -48,79 +48,79 @@ to perform incremental and full backups.
 If you want to use Tar for remote backups, you'll also need to install
 the rmt package.
 
-%description -l de
+%description -l de.UTF-8
 Das GNU tar-Programm speichert mehrere Dateien in ein Archiv, und kann
 einzelne Dateien daraus wiederherstellen (oder auch alle Dateien). Tar
-kann auch benutzt werden, um einem Archiv Dateien hinzuzufügen, und um
-die Liste der Dateien im Archiv anzuzeigen oder zu verändern.
+kann auch benutzt werden, um einem Archiv Dateien hinzuzufÃ¼gen, und um
+die Liste der Dateien im Archiv anzuzeigen oder zu verÃ¤ndern.
 
-Tar enthält multivolume-Support, automatische
-Archivkompression/dekompression, the Möglichkeit, Dateien per Netzwerk
-zu archivieren und die Möglichkeit zu inkrementellen backups.
+Tar enthÃ¤lt multivolume-Support, automatische
+Archivkompression/dekompression, the MÃ¶glichkeit, Dateien per Netzwerk
+zu archivieren und die MÃ¶glichkeit zu inkrementellen backups.
 
-Wenn Sie tar für Netzwerkbackups benutzen wollen, brauchen Sie
-außerdem das rmt-Paket.
+Wenn Sie tar fÃ¼r Netzwerkbackups benutzen wollen, brauchen Sie
+auÃŸerdem das rmt-Paket.
 
-%description -l es
+%description -l es.UTF-8
 GNU "tar" guarda varios archivos juntos, en una cinta o archivo de
 disco, y puede restaurar archivos individuales de este almacenaje.
-Incluye soporte para multivolúmenes, habilidad de almacenar archivos
-dispersos, compresión/descompresión automática, almacenajes remotos y
-características especiales que permiten "tar" ser usado para backups
+Incluye soporte para multivolÃºmenes, habilidad de almacenar archivos
+dispersos, compresiÃ³n/descompresiÃ³n automÃ¡tica, almacenajes remotos y
+caracterÃ­sticas especiales que permiten "tar" ser usado para backups
 incrementales y completos. Si deseas hacer backups remotos con tar, te
-hará falta instalar el paquete "rmt".
+harÃ¡ falta instalar el paquete "rmt".
 
-%description -l fr
+%description -l fr.UTF-8
 Le programme GNU tar permet de regrouper plusieurs fichiers en une
-seule archive et d'effectuer diverses opérations sur cette archive
-(extraction d'un fichier particulier, mise à jour, ajout d'un nouveau
+seule archive et d'effectuer diverses opÃ©rations sur cette archive
+(extraction d'un fichier particulier, mise Ã  jour, ajout d'un nouveau
 fichier, ...).
 
-Tar gère les archives multi-volumes, la compression et la
-décompression de manière transparente ainsi que la possibilité de
-réaliser des sauvegardes incrémentales et des sauvegardes complètes.
+Tar gÃ¨re les archives multi-volumes, la compression et la
+dÃ©compression de maniÃ¨re transparente ainsi que la possibilitÃ© de
+rÃ©aliser des sauvegardes incrÃ©mentales et des sauvegardes complÃ¨tes.
 
 Si vous comptez utiliser Tar pour des sauvegardes distantes, vous
-devriez également installer le programme rmt.
+devriez Ã©galement installer le programme rmt.
 
-Tar devrait être installé sur tout système car ses capacité de
-(dé)compression sont essentielles pour travailler sur les fichiers.
+Tar devrait Ãªtre installÃ© sur tout systÃ¨me car ses capacitÃ© de
+(dÃ©)compression sont essentielles pour travailler sur les fichiers.
 
-%description -l pl
-Program GNU tar s³u¿y do zapisywania wielu plików w pojedynczym
-archiwum i mo¿e tak¿e s³u¿yæ do odzyskiwania z tak preparowanych
-archiwów pojedynczych plików (lub wszystkich). Za jego pomoc± mo¿na
-tak¿e dodawaæ nowe pliki do ju¿ istniej±cego archiwum.
+%description -l pl.UTF-8
+Program GNU tar sÅ‚uÅ¼y do zapisywania wielu plikÃ³w w pojedynczym
+archiwum i moÅ¼e takÅ¼e sÅ‚uÅ¼yÄ‡ do odzyskiwania z tak preparowanych
+archiwÃ³w pojedynczych plikÃ³w (lub wszystkich). Za jego pomocÄ… moÅ¼na
+takÅ¼e dodawaÄ‡ nowe pliki do juÅ¼ istniejÄ…cego archiwum.
 
-GNU tar umo¿liwia robienie wieloczê¶ciowych archiwów (multivolume
-archive), automatyczn± kompresjê i dekompresjê samego archiwum a tak¿e
-ma mo¿liwo¶æ operowania na zdalnych archiwach co jest przydatne przy
-sporz±dzaniu przyrostowych i pe³nych archiwów zasobów.
+GNU tar umoÅ¼liwia robienie wieloczÄ™Å›ciowych archiwÃ³w (multivolume
+archive), automatycznÄ… kompresjÄ™ i dekompresjÄ™ samego archiwum a takÅ¼e
+ma moÅ¼liwoÅ›Ä‡ operowania na zdalnych archiwach co jest przydatne przy
+sporzÄ…dzaniu przyrostowych i peÅ‚nych archiwÃ³w zasobÃ³w.
 
-Je¿eli zamierzasz u¿ywaæ programu tar do operowania na zdalnych
-archiwach powiniene¶ doinstalowaæ pakiet rmt.
+JeÅ¼eli zamierzasz uÅ¼ywaÄ‡ programu tar do operowania na zdalnych
+archiwach powinieneÅ› doinstalowaÄ‡ pakiet rmt.
 
-GNU tar s³u¿y do zapisywania wielu plików na ta¶mê lub dysk. Mo¿e
-odtwarzaæ pojedyncze pliki z archiwum. Umo¿liwia zapis du¿ego archiwum
-z podzia³em na wiele no¶ników. Tar obs³uguje tak¿e automatyczn±
-kompresjê/dekompresjê i archiwa zdalne. Posiada specjalne opcje do
-robienia pe³nych i przyrostowych kopii bezpieczeñstwa. Aby tworzyæ
-zdalne archiwa tar-a trzeba zainstalowaæ pakiet rmt.
+GNU tar sÅ‚uÅ¼y do zapisywania wielu plikÃ³w na taÅ›mÄ™ lub dysk. MoÅ¼e
+odtwarzaÄ‡ pojedyncze pliki z archiwum. UmoÅ¼liwia zapis duÅ¼ego archiwum
+z podziaÅ‚em na wiele noÅ›nikÃ³w. Tar obsÅ‚uguje takÅ¼e automatycznÄ…
+kompresjÄ™/dekompresjÄ™ i archiwa zdalne. Posiada specjalne opcje do
+robienia peÅ‚nych i przyrostowych kopii bezpieczeÅ„stwa. Aby tworzyÄ‡
+zdalne archiwa tar-a trzeba zainstalowaÄ‡ pakiet rmt.
 
-%description -l pt_BR
-GNU "tar" guarda vários arquivos juntos em uma fita ou arquivo de
+%description -l pt_BR.UTF-8
+GNU "tar" guarda vÃ¡rios arquivos juntos em uma fita ou arquivo de
 disco, e pode restaurar arquivos individuais desta armazenagem. Ele
 inclui suporte para multi-volumes, habilidade de armazenar arquivos
-dispersos, compressão/descompressão automática, armazenamentos remotos
-e características especiais que permitem "tar" ser usado para backups
-incrementais e completos. Se você deseja fazer backups remotos com
-tar, você irá precisar instalar o pacote "rmt".
+dispersos, compressÃ£o/descompressÃ£o automÃ¡tica, armazenamentos remotos
+e caracterÃ­sticas especiais que permitem "tar" ser usado para backups
+incrementais e completos. Se vocÃª deseja fazer backups remotos com
+tar, vocÃª irÃ¡ precisar instalar o pacote "rmt".
 
-%description -l tr
-GNU tar, birden çok dosyayı tek bir manyetik bant ya da disk üzerinde
-arşivleyebildiği gibi, bu dosyaların arşivden tek tek geri
-yüklenmesine de izin verir. Çok kısımlı arşivleri, otomatik arşiv
-sıkıştırma ve açmayı, uzak arşivleri, artımsal yedeklemeyi destekler.
+%description -l tr.UTF-8
+GNU tar, birden Ã§ok dosyayÄ± tek bir manyetik bant ya da disk Ã¼zerinde
+arÅŸivleyebildiÄŸi gibi, bu dosyalarÄ±n arÅŸivden tek tek geri
+yÃ¼klenmesine de izin verir. Ã‡ok kÄ±sÄ±mlÄ± arÅŸivleri, otomatik arÅŸiv
+sÄ±kÄ±ÅŸtÄ±rma ve aÃ§mayÄ±, uzak arÅŸivleri, artÄ±msal yedeklemeyi destekler.
 
 %prep
 %setup -q
