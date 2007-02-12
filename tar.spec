@@ -1,10 +1,10 @@
 Summary:	A GNU file archiving program
-Summary(de.UTF-8):   GNU-Magnetband-Archivierprogramm (tar)
-Summary(es.UTF-8):   GNU Tape Archiver (tar)
-Summary(fr.UTF-8):   Programme d'archivage GNU (tar: GNU Tape Archiver)
-Summary(pl.UTF-8):   Program do archiwizacji (GNU)
-Summary(pt_BR.UTF-8):   GNU Tape Archiver (tar)
-Summary(tr.UTF-8):   Yaygın kullanılan yedekleyici
+Summary(de.UTF-8):	GNU-Magnetband-Archivierprogramm (tar)
+Summary(es.UTF-8):	GNU Tape Archiver (tar)
+Summary(fr.UTF-8):	Programme d'archivage GNU (tar: GNU Tape Archiver)
+Summary(pl.UTF-8):	Program do archiwizacji (GNU)
+Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
+Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
 Version:	1.16.1
 Release:	1
