@@ -22,6 +22,7 @@ Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-sock.patch
 Patch5:		%{name}-dots.patch
 Patch6:		%{name}-zero-block.patch
+Patch7:		%{name}-futimens.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
@@ -131,6 +132,7 @@ sıkıştırma ve açmayı, uzak arşivleri, artımsal yedeklemeyi destekler.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 rm -f po/stamp-po
 
