@@ -6,13 +6,13 @@ Summary(pl.UTF-8):	Program do archiwizacji (GNU)
 Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
-Version:	1.17
+Version:	1.18
 Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v3
 Group:		Applications/Archiving
 Source0:	ftp://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	c6c4f1c075dbf0f75c29737faa58f290
+# Source0-md5:	70170208d7c1bb9ab40120579434b6a3
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-man-debian.patch
