@@ -1,3 +1,4 @@
+%bcond_with	tests
 Summary:	A GNU file archiving program
 Summary(de.UTF-8):	GNU-Magnetband-Archivierprogramm (tar)
 Summary(es.UTF-8):	GNU Tape Archiver (tar)
@@ -143,6 +144,8 @@ rm -f po/stamp-po
 %configure
 
 %{__make}
+
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
