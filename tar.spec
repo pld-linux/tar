@@ -1,4 +1,7 @@
-%bcond_with	tests
+#
+# Conditional build:
+%bcond_with	tests	# perform make check
+#
 Summary:	A GNU file archiving program
 Summary(de.UTF-8):	GNU-Magnetband-Archivierprogramm (tar)
 Summary(es.UTF-8):	GNU Tape Archiver (tar)
