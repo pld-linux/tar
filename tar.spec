@@ -10,7 +10,7 @@ Name:		tar
 Version:	1.18
 Release:	1
 Epoch:		1
-License:	GPL v3
+License:	GPL v3+
 Group:		Applications/Archiving
 Source0:	ftp://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
 # Source0-md5:	70170208d7c1bb9ab40120579434b6a3
