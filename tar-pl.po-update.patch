@@ -1,25 +1,26 @@
---- tar-1.18/po/pl.po.orig	2007-06-28 18:56:09.000000000 +0200
-+++ tar-1.18/po/pl.po	2007-07-01 17:24:29.572113140 +0200
+--- tar-1.19/po/pl.po.orig	2007-10-10 13:05:15.000000000 +0200
++++ tar-1.19/po/pl.po	2007-10-23 18:28:49.824617195 +0200
 @@ -1,14 +1,14 @@
  # Polish translation of GNU tar
 -# Copyright (C) 1996, 1997, 2000, 2001, 2003, 2004, 2006 Free Software Foundation, Inc.
 -# Rafa³ Maszkowski <rzm@icm.edu.pl>, 1996-1997, 2000-2001, 2003-200, 2006.
+-# Thanks to Jakub Bogusz for remarks and corrections, 2003, 2004
 +# Copyright (C) 1996, 1997, 2000, 2001, 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
 +# Rafa³ Maszkowski <rzm@icm.edu.pl>, 1996, 1997, 2000, 2001, 2003, 2004, 2006, 2007.
- # Thanks to Jakub Bogusz for remarks and corrections, 2003, 2004
++# Thanks to Jakub Bogusz for remarks and corrections, 2003, 2004, 2007
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: tar 1.16.1\n"
-+"Project-Id-Version: tar 1.18\n"
++"Project-Id-Version: tar 1.19\n"
  "Report-Msgid-Bugs-To: bug-tar@gnu.org\n"
- "POT-Creation-Date: 2007-06-28 19:56+0300\n"
+ "POT-Creation-Date: 2007-10-10 14:05+0300\n"
 -"PO-Revision-Date: 2006-12-09 19:00+0100\n"
-+"PO-Revision-Date: 2007-06-30 18:20+0200\n"
++"PO-Revision-Date: 2007-10-17 13:00+0200\n"
  "Last-Translator: Rafa³ Maszkowski <rzm@icm.edu.pl>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -530,7 +530,7 @@
+@@ -531,7 +531,7 @@
  " q             Abort tar\n"
  " y or newline  Continue operation\n"
  msgstr ""
@@ -28,7 +29,7 @@
  " q             Zakoñczenie programu tar\n"
  " y albo Enter  Kontynuacja\n"
  
-@@ -686,11 +686,10 @@
+@@ -683,11 +683,10 @@
  msgstr[1] "B£¡D WERYFIKACJI: wykryto %d b³êdne nag³ówki"
  msgstr[2] "B£¡D WERYFIKACJI: wykryto %d b³êdnych nag³ówków"
  
@@ -40,64 +41,82 @@
 -msgstr "%s: zawiera znacznik katalogu pamiêci podrêcznej %s; nie zapisujê"
 +msgstr "%s: zawiera znacznik katalogu pamiêci podrêcznej %s; %s"
  
- #: src/create.c:270
+ #: src/create.c:272
  #, c-format
-@@ -707,19 +706,16 @@
+@@ -704,23 +703,21 @@
  msgid "Generating negative octal headers"
  msgstr "Tworzenie ujemnych nag³ówków ósemkowych"
  
 -# what's dump here? - rzm
- #: src/create.c:622 src/create.c:685
+ #: src/create.c:624 src/create.c:687
  #, c-format
  msgid "%s: file name is too long (max %d); not dumped"
- msgstr "%s: nazwa pliku jest za d³uga (do %d); nie zapisujê"
+-msgstr "%s: nazwa pliku jest za d³uga (do %d); nie zapisujê"
++msgstr "%s: nazwa pliku jest za d³uga (powy¿ej %d); nie zosta³a zapisana"
  
 -# what's dump here? - rzm
- #: src/create.c:632
+ #: src/create.c:634
  #, c-format
  msgid "%s: file name is too long (cannot be split); not dumped"
- msgstr "%s: nazwa pliku jest za d³uga (nie mo¿e byæ podzielona); nie zapisujê"
+-msgstr "%s: nazwa pliku jest za d³uga (nie mo¿e byæ podzielona); nie zapisujê"
++msgstr ""
++"%s: nazwa pliku jest za d³uga (nie mo¿e byæ podzielona); nie zosta³a zapisana"
  
 -# what's dump here? - rzm
- #: src/create.c:659
+ #: src/create.c:661
  #, c-format
  msgid "%s: link name is too long; not dumped"
-@@ -736,11 +732,11 @@
- #: src/create.c:1176
+-msgstr "%s: nazwa ³±cza jest za d³uga; nie zapisujê"
++msgstr "%s: nazwa ³±cza jest za d³uga; nie zosta³a zapisana"
+ 
+ #: src/create.c:1076
+ #, c-format
+@@ -733,11 +730,11 @@
+ #: src/create.c:1177
  #, c-format
  msgid "%s: file is on a different filesystem; not dumped"
 -msgstr "%s: plik w innym systemie plików; bez zapisu"
-+msgstr "%s: plik w innym systemie plików; nie zapisujê"
++msgstr "%s: plik w innym systemie plików; nie zosta³ zapisany"
  
- #: src/create.c:1217 src/create.c:1228
+ #: src/create.c:1221 src/create.c:1232 src/incremen.c:356 src/incremen.c:362
  msgid "contents not dumped"
 -msgstr ""
-+msgstr "nie zapisujê zawarto¶ci"
++msgstr "zawarto¶æ nie zosta³a zapisana"
  
- #: src/create.c:1357
+ #: src/create.c:1361
  #, c-format
-@@ -752,7 +748,6 @@
+@@ -749,27 +746,24 @@
  msgid "Missing links to %s.\n"
  msgstr "Brakuj±ce ³±cza do %s.\n"
  
 -# what's dump here? - rzm
- #: src/create.c:1529
+ #: src/create.c:1533
  #, c-format
  msgid "%s: file is unchanged; not dumped"
-@@ -768,11 +763,9 @@
+-msgstr "%s: plik jest niezmieniony; nie zapisujê"
++msgstr "%s: plik jest niezmieniony; nie zosta³ zapisany"
+ 
+ #: src/create.c:1541
+ #, c-format
+ msgid "%s: file is the archive; not dumped"
+-msgstr "%s: plik jest w tym archiwum; nie zapisujê"
++msgstr "%s: plik jest w tym archiwum; nie zosta³ zapisany"
+ 
+ #: src/create.c:1571
+ #, c-format
  msgid "%s: File removed before we read it"
  msgstr "%s: Plik usuniêty zanim zosta³ przeczytany"
  
 -# what's dump here? - rzm
- #: src/create.c:1585
+ #: src/create.c:1589 src/incremen.c:348
 -#, fuzzy
  msgid "directory not dumped"
 -msgstr "%s: zawiera znacznik katalogu pamiêci podrêcznej; nie zapisujê"
-+msgstr "nie zapisujê katalogu"
++msgstr "katalog nie zosta³ zapisany"
  
- #: src/create.c:1654
+ #: src/create.c:1658
  #, c-format
-@@ -835,8 +828,6 @@
+@@ -832,8 +826,6 @@
  msgid "%s: Cannot extract -- file is continued from another volume"
  msgstr "%s: Nie mo¿na odtworzyæ -- plik jest kontynuowany z innej czê¶ci"
  
@@ -106,93 +125,93 @@
  #: src/extract.c:1153 src/list.c:1081
  msgid "Unexpected long name header"
  msgstr "Niespodziewany nag³ówek z d³ug± nazw±"
-@@ -903,21 +894,20 @@
+@@ -900,21 +892,20 @@
  
- #: src/incremen.c:856 src/incremen.c:893
+ #: src/incremen.c:911 src/incremen.c:948
  msgid "Field too long while reading snapshot file"
 -msgstr ""
 +msgstr "Za d³ugie pole w pliku migawkowym"
  
- #: src/incremen.c:863 src/incremen.c:901
+ #: src/incremen.c:918 src/incremen.c:956
  msgid "Read error in snapshot file"
 -msgstr ""
 +msgstr "B³±d czytania pliku migawkowego"
  
- #: src/incremen.c:865 src/incremen.c:905 src/incremen.c:957
- #: src/incremen.c:1015
+ #: src/incremen.c:920 src/incremen.c:960 src/incremen.c:1012
+ #: src/incremen.c:1070
 -#, fuzzy
  msgid "Unexpected EOF in snapshot file"
 -msgstr "Nieoczekiwany EOF w archiwum"
 +msgstr "Nieoczekiwany EOF w pliku migawkowym"
  
- #: src/incremen.c:872 src/incremen.c:912
+ #: src/incremen.c:927 src/incremen.c:967
  msgid "Unexpected field value in snapshot file"
 -msgstr ""
 +msgstr "Nieoczekiwana warto¶æ pola w pliku migawkowym"
  
- #: src/incremen.c:1007
+ #: src/incremen.c:1062
  msgid "Missing record terminator"
-@@ -925,49 +915,47 @@
+@@ -922,49 +913,47 @@
  
- #: src/incremen.c:1058 src/incremen.c:1061
+ #: src/incremen.c:1113 src/incremen.c:1116
  msgid "Bad incremental file format"
 -msgstr ""
 +msgstr "Z³y format pliku przyrostowego"
  
- #: src/incremen.c:1080
+ #: src/incremen.c:1135
  #, c-format
  msgid "Unsupported incremental format version: %<PRIuMAX>"
 -msgstr ""
 +msgstr "Nie obs³ugiwana wersja formatu przyrostowego: %<PRIuMAX>"
  
- #: src/incremen.c:1233
+ #: src/incremen.c:1288
  #, c-format
  msgid "Malformed dumpdir: expected '%c' but found %#3o"
 -msgstr ""
 +msgstr "Z³y format katalogu zrzutów: oczekiwano '%c', znaleziono %#3o"
  
- #: src/incremen.c:1243
+ #: src/incremen.c:1298
  msgid "Malformed dumpdir: 'X' duplicated"
 -msgstr ""
 +msgstr "Z³y format katalogu zrzutów: powtórzone 'X'"
  
- #: src/incremen.c:1256
+ #: src/incremen.c:1311
 -#, fuzzy
  msgid "Malformed dumpdir: empty name in 'R'"
 -msgstr "B³êdna specyfikacja gêsto¶ci: '%s'"
 +msgstr "Z³y format katalogu zrzutów: pusta nazwa w 'R'"
  
- #: src/incremen.c:1269
+ #: src/incremen.c:1324
  msgid "Malformed dumpdir: 'T' not preceeded by 'R'"
 -msgstr ""
 +msgstr "Z³y format katalogu zrzutów: 'T' nie jest poprzedzone przez 'R'"
  
- #: src/incremen.c:1275
+ #: src/incremen.c:1330
 -#, fuzzy
  msgid "Malformed dumpdir: empty name in 'T'"
 -msgstr "B³êdna specyfikacja gêsto¶ci: '%s'"
 +msgstr "Z³y format katalogu zrzutów: pusta nazwa w 'T'"
  
- #: src/incremen.c:1295
+ #: src/incremen.c:1350
  #, c-format
  msgid "Malformed dumpdir: expected '%c' but found end of data"
 -msgstr ""
 +msgstr "Z³y format katalogu zrzutów: oczekiwano '%c', znaleziono koniec danych"
  
- #: src/incremen.c:1301
+ #: src/incremen.c:1356
  msgid "Malformed dumpdir: 'X' never used"
 -msgstr ""
 +msgstr "Z³y format katalogu zrzutów: nigdy nie u¿yte 'X'"
  
- #: src/incremen.c:1344
+ #: src/incremen.c:1399
  #, c-format
  msgid "Cannot create temporary directory using template %s"
 -msgstr ""
 +msgstr "Nie mo¿na utworzyæ katalogu tymczasowego przy u¿yciu wzorca %s"
  
- #: src/incremen.c:1392
+ #: src/incremen.c:1460
  #, c-format
-@@ -1129,7 +1117,7 @@
+@@ -1126,7 +1115,7 @@
  #.
  #: src/names.c:599
  msgid "Pattern matching characters used in file names. Please,"
@@ -201,7 +220,7 @@
  
  #: src/names.c:601
  msgid "use --wildcards to enable pattern matching, or --no-wildcards to"
-@@ -1169,6 +1157,8 @@
+@@ -1166,6 +1155,8 @@
  msgid ""
  "Unknown quoting style `%s'. Try `%s --quoting-style=help' to get a list."
  msgstr ""
@@ -210,7 +229,7 @@
  
  #: src/tar.c:329
  msgid ""
-@@ -1250,7 +1240,7 @@
+@@ -1247,7 +1238,7 @@
  
  #: src/tar.c:386
  msgid "test the archive volume label and exit"
@@ -219,7 +238,7 @@
  
  #: src/tar.c:391
  msgid "Operation modifiers:"
-@@ -1262,11 +1252,11 @@
+@@ -1259,11 +1250,11 @@
  
  #: src/tar.c:395
  msgid "MAJOR[.MINOR]"
@@ -233,7 +252,7 @@
  
  #: src/tar.c:398
  msgid "handle old GNU-format incremental backup"
-@@ -1308,7 +1298,7 @@
+@@ -1305,7 +1296,7 @@
  
  #: src/tar.c:415
  msgid "Overwrite control:"
@@ -242,7 +261,7 @@
  
  #: src/tar.c:418
  msgid "attempt to verify the archive after writing it"
-@@ -1352,7 +1342,7 @@
+@@ -1349,7 +1340,7 @@
  
  #: src/tar.c:440
  msgid "Select output stream:"
@@ -251,7 +270,7 @@
  
  #: src/tar.c:443
  msgid "extract files to standard output"
-@@ -1364,17 +1354,17 @@
+@@ -1361,17 +1352,17 @@
  msgstr "POLECENIE"
  
  #: src/tar.c:445
@@ -272,7 +291,7 @@
  
  #: src/tar.c:454
  msgid "Handling of file attributes:"
-@@ -1406,7 +1396,7 @@
+@@ -1403,7 +1394,7 @@
  
  #: src/tar.c:465
  msgid "METHOD"
@@ -281,7 +300,7 @@
  
  #: src/tar.c:466
  msgid ""
-@@ -1414,6 +1404,9 @@
+@@ -1411,6 +1402,9 @@
  "reading (METHOD='replace'; default) or by not setting the times in the first "
  "place (METHOD='system')"
  msgstr ""
@@ -291,7 +310,7 @@
  
  #: src/tar.c:470
  msgid "don't extract file modified time"
-@@ -1434,12 +1427,15 @@
+@@ -1431,12 +1425,15 @@
  #: src/tar.c:478
  msgid "extract information about file permissions (default for superuser)"
  msgstr ""
@@ -307,7 +326,7 @@
  
  #: src/tar.c:484
  msgid "sort names to extract to match archive"
-@@ -1454,10 +1450,12 @@
+@@ -1451,10 +1448,12 @@
  "delay setting modification times and permissions of extracted directories "
  "until the end of extraction"
  msgstr ""
@@ -321,7 +340,7 @@
  
  #: src/tar.c:497
  msgid "Device selection and switching:"
-@@ -1622,6 +1620,8 @@
+@@ -1619,6 +1618,8 @@
  #: src/tar.c:595
  msgid "add given FILE to the archive (useful if its name starts with a dash)"
  msgstr ""
@@ -330,7 +349,7 @@
  
  #: src/tar.c:596
  msgid "DIR"
-@@ -1642,10 +1642,12 @@
+@@ -1639,10 +1640,12 @@
  #: src/tar.c:603
  msgid "unquote filenames read with -T (default)"
  msgstr ""
@@ -344,7 +363,7 @@
  
  #: src/tar.c:606 tests/genfile.c:136
  msgid "PATTERN"
-@@ -1660,31 +1662,28 @@
+@@ -1657,31 +1660,28 @@
  msgstr "wykluczenie nazw pasuj±cych do wzorców w PLIKU"
  
  #: src/tar.c:611
@@ -383,19 +402,28 @@
  
  #: src/tar.c:624
  msgid "exclude directories containing FILE"
-@@ -1708,7 +1707,7 @@
+@@ -1689,7 +1689,7 @@
  
- #: src/tar.c:634
+ #: src/tar.c:626
+ msgid "exclude version control system directories"
+-msgstr ""
++msgstr "wykluczenie katalogów systemu administrowania wersjami"
+ 
+ #: src/tar.c:628
+ msgid "avoid descending automatically in directories"
+@@ -1709,7 +1709,7 @@
+ 
+ #: src/tar.c:636
  msgid "follow symlinks; archive and dump the files they point to"
 -msgstr ""
-+msgstr "archiwizacja plików, na które wskazuj± ³±ca symboliczne"
++msgstr "archiwizacja plików, na które wskazuj± ³±cza symboliczne"
  
- #: src/tar.c:635
+ #: src/tar.c:637
  msgid "MEMBER-NAME"
-@@ -1755,10 +1754,9 @@
+@@ -1756,10 +1756,9 @@
  msgstr "Zmiany nazwy plików:"
  
- #: src/tar.c:652
+ #: src/tar.c:654
 -#, fuzzy
  msgid "strip NUMBER leading components from file names on extraction"
  msgstr ""
@@ -403,47 +431,47 @@
 +"uciêcie przed rozpakowaniem LICZBY pocz±tkowych elementów ¶cie¿ki z nazw "
  "plików"
  
- #: src/tar.c:654
-@@ -1767,31 +1765,29 @@
+ #: src/tar.c:656
+@@ -1768,31 +1767,29 @@
  
- #: src/tar.c:655
+ #: src/tar.c:657
  msgid "use sed replace EXPRESSION to transform file names"
 -msgstr ""
 +msgstr "u¿ycie WYRA¯ENIA zamiany sed-a do przekszta³cenia nazw plików"
  
- #: src/tar.c:660
+ #: src/tar.c:662
  msgid "File name matching options (affect both exclude and include patterns):"
  msgstr ""
 +"Opcje filtracji nazw plików (dotycz± zarówno wzorców wykluczania jak "
 +"w³±czania):"
  
- #: src/tar.c:663
+ #: src/tar.c:665
 -#, fuzzy
  msgid "ignore case"
 -msgstr "wykluczanie traktuje tak samo ma³e i wielkie litery"
 +msgstr "traktowanie tak samo ma³ych i wielkich liter"
  
- #: src/tar.c:665
+ #: src/tar.c:667
 -#, fuzzy
  msgid "patterns match file name start"
 -msgstr "wykluczane nazwy porównywane od pocz±tków nazw plików"
 +msgstr "nazwy porównywane od pocz±tków nazw plików"
  
- #: src/tar.c:667
+ #: src/tar.c:669
 -#, fuzzy
  msgid "patterns match after any `/' (default for exclusion)"
 -msgstr "wzorce wykluczania odnosz± siê do nazw po ka¿dym / (domy¶lnie)"
 +msgstr "wzorce odnosz± siê do nazw po ka¿dym / (domy¶lnie)"
  
- #: src/tar.c:669
+ #: src/tar.c:671
 -#, fuzzy
  msgid "case sensitive matching (default)"
 -msgstr "wykluczanie odró¿nia ma³e i wielkie litery (domy¶lnie)"
 +msgstr "odró¿nianie ma³ych i wielkich liter (domy¶lnie)"
  
- #: src/tar.c:671
+ #: src/tar.c:673
  msgid "use wildcards (default for exclusion)"
-@@ -1841,6 +1837,10 @@
+@@ -1842,6 +1839,10 @@
  "SIGQUIT, SIGINT, SIGUSR1 and SIGUSR2; the names without SIG prefix are also "
  "accepted"
  msgstr ""
@@ -452,76 +480,76 @@
 +"sygna³y: SIGHUP, SIGQUIT, SIGINT, SIGUSR1 i SIGUSR2; nazwy bez prefiksu SIG "
 +"s± te¿ akceptowane"
  
- #: src/tar.c:697
+ #: src/tar.c:699
  msgid "print file modification dates in UTC"
-@@ -1886,11 +1886,11 @@
+@@ -1887,11 +1888,11 @@
  
- #: src/tar.c:716
+ #: src/tar.c:718
  msgid "additionally quote characters from STRING"
 -msgstr ""
 +msgstr "dodatkowe ujmowanie w znaki cytowania znaków z £AÑCUCHA"
  
- #: src/tar.c:718
+ #: src/tar.c:720
  msgid "disable quoting for characters from STRING"
 -msgstr ""
 +msgstr "wy³±czenie ujmowania w znaki cytowania znaków z £AÑCUCHA"
  
- #: src/tar.c:723
+ #: src/tar.c:725
  msgid "Compatibility options:"
-@@ -1926,9 +1926,8 @@
+@@ -1927,9 +1928,8 @@
  msgstr "Nieznana nazwa sygna³u: %s"
  
- #: src/tar.c:928
+ #: src/tar.c:962
 -#, fuzzy
  msgid "Date sample file not found"
 -msgstr "Nie znaleziono pliku maj±cego datê graniczn±"
 +msgstr "Nie znaleziono pliku z dat±"
  
- #: src/tar.c:936
+ #: src/tar.c:970
  #, c-format
-@@ -1948,11 +1947,11 @@
- #: src/tar.c:1098
+@@ -1949,11 +1949,11 @@
+ #: src/tar.c:1132
  #, c-format
  msgid "%s: file name read contains nul character"
 -msgstr ""
 +msgstr "%s: przeczytana nazwa pliku zawiera znak NUL"
  
- #: src/tar.c:1163
+ #: src/tar.c:1197
  msgid "Valid arguments for --quoting-style options are:"
 -msgstr ""
 +msgstr "Argumenty opcji --quoting-style:"
  
- #: src/tar.c:1166
+ #: src/tar.c:1200
  msgid ""
-@@ -1980,15 +1979,15 @@
+@@ -1981,15 +1981,15 @@
  
- #: src/tar.c:1391 src/tar.c:1394
+ #: src/tar.c:1425 src/tar.c:1428
  msgid "Invalid sparse version value"
 -msgstr ""
 +msgstr "B³êdna warto¶æ wersji plików rzadkich"
  
- #: src/tar.c:1479
+ #: src/tar.c:1513
  msgid "--atime-preserve='system' is not supported on this platform"
 -msgstr ""
 +msgstr "ten system nie pozwala na u¿ycie --atime-preserve='system'"
  
- #: src/tar.c:1496
+ #: src/tar.c:1530
  msgid "--checkpoint value is not an integer"
 -msgstr ""
 +msgstr "warto¶æ --checkpoint nie jest liczb± ca³kowit±"
  
- #: src/tar.c:1589
+ #: src/tar.c:1627
  #, c-format
-@@ -2022,7 +2021,7 @@
+@@ -2023,7 +2023,7 @@
  
- #: src/tar.c:1765
+ #: src/tar.c:1803
  msgid "Only one --to-command option allowed"
 -msgstr ""
 +msgstr "Wolno u¿yæ tylko jednej opcji polecenia --to-command"
  
- #: src/tar.c:1841
+ #: src/tar.c:1879
  #, c-format
-@@ -2201,6 +2200,8 @@
+@@ -2202,6 +2202,8 @@
  "genfile manipulates data files for GNU paxutils test suite.\n"
  "OPTIONS are:\n"
  msgstr ""
@@ -530,7 +558,7 @@
  
  #: tests/genfile.c:127
  msgid "File creation options:"
-@@ -2253,48 +2254,59 @@
+@@ -2254,48 +2256,59 @@
  #: tests/genfile.c:154
  msgid "Print contents of struct stat for each given file. Default FORMAT is: "
  msgstr ""
@@ -594,7 +622,7 @@
  
  #: tests/genfile.c:191
  msgid "Execute COMMAND"
-@@ -2341,9 +2353,8 @@
+@@ -2342,9 +2355,8 @@
  msgstr "nie mo¿na otworzyæ `%s'"
  
  #: tests/genfile.c:428
@@ -605,7 +633,7 @@
  
  #: tests/genfile.c:445
  #, c-format
-@@ -2359,7 +2370,7 @@
+@@ -2360,7 +2372,7 @@
  #: tests/genfile.c:588
  #, c-format
  msgid "incorrect mask (near `%s')"
@@ -614,7 +642,7 @@
  
  #: tests/genfile.c:594 tests/genfile.c:627
  #, c-format
-@@ -2379,7 +2390,7 @@
+@@ -2380,7 +2392,7 @@
  #: tests/genfile.c:810
  #, c-format
  msgid "Command failed with status %d\n"
@@ -623,7 +651,7 @@
  
  #: tests/genfile.c:814
  #, c-format
-@@ -2394,17 +2405,13 @@
+@@ -2395,17 +2407,13 @@
  #: tests/genfile.c:819
  #, c-format
  msgid "Command dumped core\n"
@@ -642,10 +670,13 @@
  #: tests/genfile.c:854
  #, c-format
  msgid "--stat requires file names"
-@@ -2414,169 +2421,3 @@
+@@ -2415,172 +2423,3 @@
  #, c-format
  msgid "too many arguments"
  msgstr "za du¿o argumentów"
+-
+-#~ msgid "block size"
+-#~ msgstr "rozmiar bloku"
 -
 -#~ msgid "%s: Read error at byte %s, reading %lu byte"
 -#~ msgid_plural "%s: Read error at byte %s, reading %lu bytes"
