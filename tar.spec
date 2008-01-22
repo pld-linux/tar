@@ -11,7 +11,7 @@ Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
 Version:	1.19
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
@@ -32,6 +32,7 @@ BuildRequires:	bison
 BuildRequires:	gettext-devel >= 0.16
 BuildRequires:	sed >= 4.0
 BuildRequires:	texinfo
+Conflicts:	amanda-client < 2.5.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
