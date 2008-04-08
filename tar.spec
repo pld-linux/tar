@@ -15,7 +15,7 @@ Release:	2
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
-Source0:	ftp://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
 # Source0-md5:	bcc2e19b19823b9ab68c94586067a792
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
