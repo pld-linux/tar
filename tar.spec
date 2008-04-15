@@ -11,7 +11,7 @@ Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
 Version:	1.20
-Release:	0.5
+Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
@@ -131,7 +131,7 @@ sıkıştırma ve açmayı, uzak arşivleri, artımsal yedeklemeyi destekler.
 %patch0 -p2
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
+%patch3 -p1
 %patch4 -p1
 %patch5 -p1
 
