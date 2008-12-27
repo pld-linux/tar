@@ -1,29 +1,126 @@
---- tar-1.20/po/pl.po.orig	2008-04-14 14:09:18.000000000 +0200
-+++ tar-1.20/po/pl.po	2008-04-15 20:48:23.004084409 +0200
-@@ -6,10 +6,10 @@
- #
- msgid ""
- msgstr ""
--"Project-Id-Version: tar 1.19.90\n"
-+"Project-Id-Version: tar 1.20\n"
+--- tar-1.21/po/pl.po.orig	2008-12-27 16:55:00.997523064 +0100
++++ tar-1.21/po/pl.po	2008-12-27 16:56:03.990850092 +0100
+@@ -9,8 +9,8 @@
+ "Project-Id-Version: tar 1.20\n"
  "Report-Msgid-Bugs-To: bug-tar@gnu.org\n"
- "POT-Creation-Date: 2008-04-14 15:09+0300\n"
--"PO-Revision-Date: 2008-02-08 21:30+0200\n"
-+"PO-Revision-Date: 2008-04-14 23:00+0200\n"
- "Last-Translator: Rafa³ Maszkowski <rzm@icm.edu.pl>\n"
+ "POT-Creation-Date: 2008-12-27 00:44+0200\n"
+-"PO-Revision-Date: 2008-04-14 23:00+0200\n"
+-"Last-Translator: Rafa³ Maszkowski <rzm@icm.edu.pl>\n"
++"PO-Revision-Date: 2008-12-27 16:56+0100\n"
++"Last-Translator: Adam Go³êbiowski <adamg@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -1425,11 +1425,11 @@
+ "Content-Type: text/plain; charset=ISO-8859-2\n"
+@@ -722,9 +722,9 @@
+ msgstr "%s to z³y rozmiar (%s != %s + %s)"
  
- #: src/tar.c:417
- msgid "do not check device numbers when creating incremental archives"
+ #: src/buffer.c:1251
+-#, fuzzy, c-format
++#, c-format
+ msgid "This volume is out of sequence (%s - %s != %s)"
+-msgstr "Ta czê¶æ nie jest kolejn±"
++msgstr "Ta czê¶æ nie spoza sekwencji (%s - %s != %s)"
+ 
+ #: src/buffer.c:1301
+ #, c-format
+@@ -745,9 +745,8 @@
+ "archiwum GNU, zostanie skrócona"
+ 
+ #: src/buffer.c:1619
+-#, fuzzy
+ msgid "write did not end on a block boundary"
+-msgstr "rmtlseek nie zatrzyma³ siê na granicy rekordów"
++msgstr "write nie zatrzyma³ siê na granicy bloku"
+ 
+ #: src/compare.c:96
+ #, c-format
+@@ -1756,10 +1755,9 @@
+ "u¿ycie przyrostka nazwy archiwum dla wyznaczenie programu kompresuj±cego"
+ 
+ #: src/tar.c:598
+-#, fuzzy
+ msgid "do not use use archive suffix to determine the compression program"
+ msgstr ""
+-"u¿ycie przyrostka nazwy archiwum dla wyznaczenie programu kompresuj±cego"
++"nie u¿ywaj przyrostka nazwy archiwum dla wyznaczenia programu kompresuj±cego"
+ 
+ #: src/tar.c:601
+ msgid "filter the archive through bzip2"
+@@ -1778,9 +1776,8 @@
+ msgstr "filtrowanie archiwum przez lzma"
+ 
+ #: src/tar.c:612
+-#, fuzzy
+ msgid "filter the archive through lzop"
+-msgstr "filtrowanie archiwum przez gzip"
++msgstr "filtrowanie archiwum przez lzop"
+ 
+ #: src/tar.c:613
+ msgid "PROG"
+@@ -1818,7 +1815,7 @@
+ 
+ #: src/tar.c:630
+ msgid "disable the effect of the previous --null option"
 -msgstr ""
-+msgstr "bez sprawdzania numerów urz±dzeñ przy tworzeniu archiwów przyrostowych"
++msgstr "wy³±cza efekt poprzedniej opcji --null"
  
- #: src/tar.c:420
- msgid "check device numbers when creating incremental archives (default)"
+ #: src/tar.c:632
+ msgid "unquote filenames read with -T (default)"
+@@ -2204,6 +2201,8 @@
+ "The --preserve option is deprecated, use --preserve-permissions --preserve-"
+ "order instead"
+ msgstr ""
++"Opcja --preserve jest oznaczona jako przestarza³a, u¿yj --preserve-permissions "
++"--preserver-order"
+ 
+ #: src/tar.c:1833
+ msgid "Invalid record size"
+@@ -2292,11 +2291,11 @@
+ 
+ #: src/tar.c:2350
+ msgid "Volume length cannot be less than record size"
 -msgstr ""
-+msgstr "ze sprawdzaniem numerów urz±dzeñ przy tworzeniu archiwów przyrostowych"
++msgstr "D³ugo¶æ woluminu nie mo¿e byæ mniejsza ni¿ rozmiar rekordu"
  
- #: src/tar.c:426
- msgid "Overwrite control:"
+ #: src/tar.c:2353
+ msgid "--preserve-order is not compatible with --listed-incremental"
+-msgstr ""
++msgstr "--preserve-order jest niekompatybilna z --listed-incremenetal"
+ 
+ #: src/tar.c:2364
+ msgid "Cowardly refusing to create an empty archive"
+@@ -2313,7 +2312,7 @@
+ #: src/tar.c:2529
+ #, c-format
+ msgid "Exiting with failure status due to previous errors"
+-msgstr ""
++msgstr "Zakoñczono niepowodzeniem na wskutek poprzednich b³êdów"
+ 
+ #: src/update.c:86
+ #, c-format
+@@ -2578,12 +2577,12 @@
+ #: tests/genfile.c:264
+ #, c-format
+ msgid "requested file length %lu, actual %lu"
+-msgstr ""
++msgstr "¿±dano rozmiar pliku %lu, faktyczny %lu"
+ 
+ #: tests/genfile.c:268
+ #, c-format
+ msgid "created file is not sparse"
+-msgstr ""
++msgstr "stworzony plik nie jest rzadki"
+ 
+ #: tests/genfile.c:353
+ #, c-format
+@@ -2674,10 +2673,3 @@
+ #, c-format
+ msgid "too many arguments"
+ msgstr "za du¿o argumentów"
+-
+-#, fuzzy
+-#~ msgid "cancel effect of the previous --transform-links option"
+-#~ msgstr "wy³±czenie efektu opcji --delay-directory-restore"
+-
+-#~ msgid "Error exit delayed from previous errors"
+-#~ msgstr "Zakoñczenie z b³êdem z powodu uprzednich b³êdów"
