@@ -10,13 +10,13 @@ Summary(pl.UTF-8):	Program do archiwizacji (GNU)
 Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
-Version:	1.20
+Version:	1.21
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
 Source0:	http://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	1a7e17f27abf583b3b0bc059a827e68b
+# Source0-md5:	4f9028d231c3e7d7bdd658e14e74c2d1
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-man-debian.patch
@@ -126,6 +126,19 @@ arşivleyebildiği gibi, bu dosyaların arşivden tek tek geri
 yüklenmesine de izin verir. Çok kısımlı arşivleri, otomatik arşiv
 sıkıştırma ve açmayı, uzak arşivleri, artımsal yedeklemeyi destekler.
 
+%package rmt
+Summary:	tar's version of rmt utility
+Summary(pl.UTF-8): narzędzie rmt z pakietu tar
+Group:		Applications/Archiving
+
+%description rmt
+This package provdes rmt utility which can be used instead of the one
+coming from dump project.
+
+%description rmt -l pl.UTF-8
+Pakiet ten dostarcza narzędza rmt, które może być użyte zamiast tego
+z pakietu dump.
+
 %prep
 %setup -q
 %patch0 -p2
@@ -190,3 +203,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_mandir}/ja/man1/*
 %lang(nl) %{_mandir}/nl/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
+
+%files rmt
+%defattr(644,root,root,755)
+%attr(755,root,root) /sbin/*
