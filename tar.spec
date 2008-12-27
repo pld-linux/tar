@@ -128,7 +128,7 @@ sıkıştırma ve açmayı, uzak arşivleri, artımsal yedeklemeyi destekler.
 
 %package rmt
 Summary:	tar's version of rmt utility
-Summary(pl.UTF-8): narzędzie rmt z pakietu tar
+Summary(pl.UTF-8):	Narzędzie rmt z pakietu tar
 Group:		Applications/Archiving
 
 %description rmt
@@ -136,7 +136,7 @@ This package provdes rmt utility which can be used instead of the one
 coming from dump project.
 
 %description rmt -l pl.UTF-8
-Pakiet ten dostarcza narzędza rmt, które może być użyte zamiast tego
+Pakiet ten dostarcza narzędzie rmt, które może być użyte zamiast tego
 z pakietu dump.
 
 %prep
