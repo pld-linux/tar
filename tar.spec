@@ -10,13 +10,13 @@ Summary(pl.UTF-8):	Program do archiwizacji (GNU)
 Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
-Version:	1.21
+Version:	1.22
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
 Source0:	http://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	4f9028d231c3e7d7bdd658e14e74c2d1
+# Source0-md5:	07fa517027f426bb80f5f5ff91b63585
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-man-debian.patch
@@ -164,12 +164,12 @@ rm -f po/stamp-po
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_prefix}%{_bindir},%{_mandir}/man1}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
+ln -sf %{_bindir}/tar $RPM_BUILD_ROOT%{_prefix}%{_bindir}/gtar
 
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
@@ -190,7 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README NEWS
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) %{_prefix}%{_bindir}/*
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
 %lang(de) %{_mandir}/de/man1/*
