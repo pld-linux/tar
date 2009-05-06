@@ -1,132 +1,609 @@
---- tar-1.21/po/pl.po.orig	2008-12-26 23:44:30.000000000 +0100
-+++ tar-1.21/po/pl.po	2008-12-27 18:47:16.570515506 +0100
-@@ -6,10 +6,10 @@
+--- tar-1.22/po/pl.po.orig	2009-03-05 08:18:47.000000000 +0100
++++ tar-1.22/po/pl.po	2009-04-07 15:42:02.000000000 +0200
+@@ -1,24 +1,23 @@
+ # Polish translation of GNU tar
+-# Copyright (C) 1996, 1997, 2000, 2001, 2003, 2004, 2006, 2007, 2008 Free Software Foundation, Inc.
++# Copyright (C) 1996, 1997, 2000, 2001, 2003, 2004, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+ # This file is distributed under the same license as the tar package.
+-# Rafał Maszkowski <rzm@icm.edu.pl>, 1996, 1997, 2000, 2001, 2003, 2004, 2006, 2007, 2008.
++# Rafał Maszkowski <rzm@icm.edu.pl>, 1996, 1997, 2000, 2001, 2003, 2004, 2006-2009.
+ # Thanks to Jakub Bogusz for remarks and corrections, 2003, 2004, 2007, 2008
+ #
+ # my „smart" mutt needs this line
  #
  msgid ""
  msgstr ""
--"Project-Id-Version: tar 1.20\n"
-+"Project-Id-Version: tar 1.21\n"
+-"Project-Id-Version: tar 1.21\n"
++"Project-Id-Version: tar 1.22\n"
  "Report-Msgid-Bugs-To: bug-tar@gnu.org\n"
- "POT-Creation-Date: 2008-12-27 00:44+0200\n"
--"PO-Revision-Date: 2008-04-14 23:00+0200\n"
-+"PO-Revision-Date: 2008-12-27 12:00+0200\n"
- "Last-Translator: Rafa� Maszkowski <rzm@icm.edu.pl>\n"
+ "POT-Creation-Date: 2009-03-05 09:18+0200\n"
+-"PO-Revision-Date: 2008-12-27 23:59+0200\n"
++"PO-Revision-Date: 2009-04-07 15:30+0200\n"
+ "Last-Translator: Rafał Maszkowski <rzm@icm.edu.pl>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -722,9 +722,9 @@
- msgstr "%s to z�y rozmiar (%s != %s + %s)"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8-bit\n"
+-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+-"|| n%100>=20) ? 1 : 2);\n"
++"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
  
- #: src/buffer.c:1251
--#, fuzzy, c-format
-+#, c-format
- msgid "This volume is out of sequence (%s - %s != %s)"
--msgstr "Ta cz�� nie jest kolejn�"
-+msgstr "Ta cz�� nie jest w kolejno�ci (%s - %s != %s)"
- 
- #: src/buffer.c:1301
+ #: lib/argmatch.c:133
  #, c-format
-@@ -745,9 +745,8 @@
- "archiwum GNU, zostanie skr�cona"
+@@ -61,12 +60,8 @@
+ msgstr "Śmieci w ARGP_HELP_FMT: %s"
  
- #: src/buffer.c:1619
+ #: lib/argp-help.c:1246
+-msgid ""
+-"Mandatory or optional arguments to long options are also mandatory or "
+-"optional for any corresponding short options."
+-msgstr ""
+-"Argumenty obowiązkowe lub opcjonalne dla opcji długich są również "
+-"obowiązkowe lub opcjonalne również dla odpowiadających im opcji krótkich."
++msgid "Mandatory or optional arguments to long options are also mandatory or optional for any corresponding short options."
++msgstr "Argumenty obowiązkowe lub opcjonalne dla opcji długich są również obowiązkowe lub opcjonalne również dla odpowiadających im opcji krótkich."
+ 
+ #: lib/argp-help.c:1639
+ msgid "Usage:"
+@@ -290,8 +285,7 @@
+ #: lib/paxnames.c:156
+ #, c-format
+ msgid "Removing leading `%s' from hard link targets"
+-msgstr ""
+-"Usunięcie początkowego `%s' z nazw plików wskazywanych przez łącza zwykłe"
++msgstr "Usunięcie początkowego `%s' z nazw plików wskazywanych przez łącza zwykłe"
+ 
+ #: lib/paxnames.c:169
+ msgid "Substituting `.' for empty member name"
+@@ -376,18 +370,15 @@
+ msgstr "(C)"
+ 
+ #: lib/version-etc.c:67
 -#, fuzzy
+ msgid ""
+ "\n"
+-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+-"html>.\n"
++"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.\n"
+ "This is free software: you are free to change and redistribute it.\n"
+ "There is NO WARRANTY, to the extent permitted by law.\n"
+ "\n"
+ msgstr ""
+ "\n"
+-"Licencja GPLv3+: GNU GPL wersja 3 albo późniejsza  <http://gnu.org/licenses/"
+-"gpl.html>\n"
++"Licencja GPLv3+: GNU GPL wersja 3 albo późniejsza http://gnu.org/licenses/gpl.html\n"
+ "To jest wolne oprogramowanie: możesz je modyfikować i rozpowszechniać.\n"
+ "Autorzy NIE DAJĄ GWARANCJI w granicach dozwolonych prawem.\n"
+ "\n"
+@@ -516,11 +507,11 @@
+ #: lib/version-etc.c:182
+ #, c-format
+ msgid "%s home page: <http://www.gnu.org/software/%s/>.\n"
+-msgstr ""
++msgstr "strona domowa %s: http://www.gnu.org/software/%s/\n"
+ 
+ #: lib/version-etc.c:184
+ msgid "General help using GNU software: <http://www.gnu.org/gethelp/>.\n"
+-msgstr ""
++msgstr "Informacje o używaniu oprogramowania GNU: http://www.gnu.org/gethelp/\n"
+ 
+ #: rmt/rmt.c:142
+ msgid "Input string too long"
+@@ -712,8 +703,7 @@
+ #: src/buffer.c:1015
+ #, c-format
+ msgid "Invalid input. Type ? for help.\n"
+-msgstr ""
+-"Błędne dane wejściowe. Wciśnij ? żeby przeczytać informacje pomocnicze\n"
++msgstr "Błędne dane wejściowe. Wciśnij ? żeby przeczytać informacje pomocnicze\n"
+ 
+ #: src/buffer.c:1066
+ #, c-format
+@@ -723,9 +713,7 @@
+ #: src/buffer.c:1221
+ #, c-format
+ msgid "%s is possibly continued on this volume: header contains truncated name"
+-msgstr ""
+-"%s prawdopodobnie jest kontynuowany w tej części: nagłówek zawiera skróconą "
+-"nazwę"
++msgstr "%s prawdopodobnie jest kontynuowany w tej części: nagłówek zawiera skróconą nazwę"
+ 
+ #: src/buffer.c:1225
+ #, c-format
+@@ -754,11 +742,8 @@
+ 
+ #: src/buffer.c:1402
+ #, c-format
+-msgid ""
+-"%s: file name too long to be stored in a GNU multivolume header, truncated"
+-msgstr ""
+-"%s: nazwa pliku jest za długa do zapisania w nagłówku wieloczęściowego "
+-"archiwum GNU, zostanie skrócona"
++msgid "%s: file name too long to be stored in a GNU multivolume header, truncated"
++msgstr "%s: nazwa pliku jest za długa do zapisania w nagłówku wieloczęściowego archiwum GNU, zostanie skrócona"
+ 
+ #: src/buffer.c:1621
  msgid "write did not end on a block boundary"
--msgstr "rmtlseek nie zatrzyma� si� na granicy rekord�w"
-+msgstr "zapis nie zako�czy� si� na granicy blok�w"
- 
- #: src/compare.c:96
+@@ -877,8 +862,7 @@
+ #: src/create.c:634
  #, c-format
-@@ -1753,13 +1752,12 @@
- #: src/tar.c:596
+ msgid "%s: file name is too long (cannot be split); not dumped"
+-msgstr ""
+-"%s: nazwa pliku jest za długa (nie może być podzielona); nie została zapisana"
++msgstr "%s: nazwa pliku jest za długa (nie może być podzielona); nie została zapisana"
+ 
+ #: src/create.c:661
+ #, c-format
+@@ -1171,9 +1155,7 @@
+ #: src/list.c:726
+ #, c-format
+ msgid "Archive octal value %.*s is out of %s range; assuming two's complement"
+-msgstr ""
+-"Wartość ósemkowa %.*s w archiwum jest spoza zakresu %s; będzie traktowana "
+-"jak uzupełnienie dwójkowe"
++msgstr "Wartość ósemkowa %.*s w archiwum jest spoza zakresu %s; będzie traktowana jak uzupełnienie dwójkowe"
+ 
+ #. TRANSLATORS: Second %s is a type name (gid_t,uid_t,etc.)
+ #: src/list.c:737
+@@ -1280,8 +1262,7 @@
+ 
+ #: src/names.c:595
+ msgid "use --wildcards to enable pattern matching, or --no-wildcards to"
+-msgstr ""
+-"użyć --wildcards aby włączyć porównywanie wzorców albo --no-wildcards żeby"
++msgstr "użyć --wildcards aby włączyć porównywanie wzorców albo --no-wildcards żeby"
+ 
+ #: src/names.c:597
+ msgid "suppress this warning."
+@@ -1313,52 +1294,42 @@
+ 
+ #: src/tar.c:241
+ #, c-format
+-msgid ""
+-"Unknown quoting style `%s'. Try `%s --quoting-style=help' to get a list."
+-msgstr ""
+-"Nieznany styl cytowania `%s'. Użyj `%s --quoting-style=help' żeby zobaczyć "
+-"listę."
++msgid "Unknown quoting style `%s'. Try `%s --quoting-style=help' to get a list."
++msgstr "Nieznany styl cytowania `%s'. Użyj `%s --quoting-style=help' żeby zobaczyć listę."
+ 
+ #: src/tar.c:336
+ msgid ""
+-"GNU `tar' saves many files together into a single tape or disk archive, and "
+-"can restore individual files from the archive.\n"
++"GNU `tar' saves many files together into a single tape or disk archive, and can restore individual files from the archive.\n"
+ "\n"
+ "Examples:\n"
+ "  tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.\n"
+ "  tar -tvf archive.tar         # List all files in archive.tar verbosely.\n"
+ "  tar -xf archive.tar          # Extract all files from archive.tar.\n"
+ msgstr ""
+-"`tar' GNU zapisuje wiele plików razem na na jednej taśmie lub archiwum "
+-"dyskowym i może odzyskać poszczególne pliki z archiwum.\n"
++"`tar' GNU zapisuje wiele plików razem na na jednej taśmie lub archiwum dyskowym i może odzyskać poszczególne pliki z archiwum.\n"
+ "\n"
+ "Przykłady:\n"
+ "  tar -cf archive.tar foo bar  # utworzenie archive.tar z plików foo i bar.\n"
+-"  tar -tvf archive.tar         # wypisanie szczegółowe plików w archive."
+-"tar.\n"
++"  tar -tvf archive.tar         # wypisanie szczegółowe plików w archive.tar.\n"
+ "  tar -xf archive.tar          # rozpakowanie plików z archive.tar.\n"
+ 
+ #: src/tar.c:345
+ msgid ""
+ "The backup suffix is `~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.\n"
+-"The version control may be set with --backup or VERSION_CONTROL, values "
+-"are:\n"
++"The version control may be set with --backup or VERSION_CONTROL, values are:\n"
+ "\n"
+ "  none, off       never make backups\n"
+ "  t, numbered     make numbered backups\n"
+ "  nil, existing   numbered if numbered backups exist, simple otherwise\n"
+ "  never, simple   always make simple backups\n"
+ msgstr ""
+-"Przyrostek kopii zapasowej to `~', jeżeli nie został zmieniony przez --"
+-"suffix\n"
+-"lub SIMPLE_BACKUP_SUFFIX.  Sposób zarządzania wersjami może być zmieniony "
+-"przez\n"
++"Przyrostek kopii zapasowej to `~', jeżeli nie został zmieniony przez --suffix\n"
++"lub SIMPLE_BACKUP_SUFFIX.  Sposób zarządzania wersjami może być zmieniony przez\n"
+ "--backup lub VERSION_CONTROL, możliwe wartości:\n"
+ "\n"
+ "  none, off       bez kopii zapasowych\n"
+ "  t, numbered     zrobienie numerowanych kopii zapasowych\n"
+-"  nil, existing   numerowane jeżeli takie już są, w przeciwnym wypadku "
+-"proste\n"
++"  nil, existing   numerowane jeżeli takie już są, w przeciwnym wypadku proste\n"
+ "  never, simple   proste kopie zapasowe\n"
+ 
+ #: src/tar.c:370
+@@ -1441,16 +1412,8 @@
+ msgstr "LICZBA"
+ 
+ #: src/tar.c:410
+-msgid ""
+-"process only the NUMBERth occurrence of each file in the archive; this "
+-"option is valid only in conjunction with one of the subcommands --delete, --"
+-"diff, --extract or --list and when a list of files is given either on the "
+-"command line or via the -T option; NUMBER defaults to 1"
+-msgstr ""
+-"przetwarzanie tylko co LICZBA wystąpienie każdego pliku w archiwum. Opcja "
+-"działa tylko razem z --delete, --diff, --extract albo --list oraz gdy lista "
+-"plików jest podana w linii poleceń albo przez opcję -T. LICZBA domyślnie "
+-"wynosi 1."
++msgid "process only the NUMBERth occurrence of each file in the archive; this option is valid only in conjunction with one of the subcommands --delete, --diff, --extract or --list and when a list of files is given either on the command line or via the -T option; NUMBER defaults to 1"
++msgstr "przetwarzanie tylko co LICZBA wystąpienie każdego pliku w archiwum. Opcja działa tylko razem z --delete, --diff, --extract albo --list oraz gdy lista plików jest podana w linii poleceń albo przez opcję -T. LICZBA domyślnie wynosi 1."
+ 
+ #: src/tar.c:416
+ msgid "archive is seekable"
+@@ -1482,9 +1445,7 @@
+ 
+ #: src/tar.c:436
+ msgid "don't replace existing files that are newer than their archive copies"
+-msgstr ""
+-"bez zastępowania istniejących plików, które są nowsze niż ich kopie w "
+-"archiwum"
++msgstr "bez zastępowania istniejących plików, które są nowsze niż ich kopie w archiwum"
+ 
+ #: src/tar.c:438
+ msgid "overwrite existing files when extracting"
+@@ -1504,9 +1465,7 @@
+ 
+ #: src/tar.c:446
+ msgid "overwrite metadata of existing directories when extracting (default)"
+-msgstr ""
+-"nadpisywanie metadanych istniejących katalogów przy rozpakowywaniu "
+-"(domyslnie)"
++msgstr "nadpisywanie metadanych istniejących katalogów przy rozpakowywaniu (domyslnie)"
+ 
+ #: src/tar.c:452
+ msgid "Select output stream:"
+@@ -1531,8 +1490,7 @@
+ 
+ #: src/tar.c:461
+ msgid "treat non-zero exit codes of children as error"
+-msgstr ""
+-"traktowanie niezerowych kodów wyjściowych procesów potomnych jako błędu"
++msgstr "traktowanie niezerowych kodów wyjściowych procesów potomnych jako błędu"
+ 
+ #: src/tar.c:466
+ msgid "Handling of file attributes:"
+@@ -1567,14 +1525,8 @@
+ msgstr "METODA"
+ 
+ #: src/tar.c:478
+-msgid ""
+-"preserve access times on dumped files, either by restoring the times after "
+-"reading (METHOD='replace'; default) or by not setting the times in the first "
+-"place (METHOD='system')"
+-msgstr ""
+-"zachowanie czasów dostępu archiwizowanych plików przez ich odtworzenie po "
+-"czytaniu (METODA='replace'; domyślnie) albo przez nieustawianie czasu "
+-"(METODA='system')"
++msgid "preserve access times on dumped files, either by restoring the times after reading (METHOD='replace'; default) or by not setting the times in the first place (METHOD='system')"
++msgstr "zachowanie czasów dostępu archiwizowanych plików przez ich odtworzenie po czytaniu (METODA='replace'; domyślnie) albo przez nieustawianie czasu (METODA='system')"
+ 
+ #: src/tar.c:482
+ msgid "don't extract file modified time"
+@@ -1594,16 +1546,11 @@
+ 
+ #: src/tar.c:490
+ msgid "extract information about file permissions (default for superuser)"
+-msgstr ""
+-"odtworzenie informacji o uprawnieniach plików (domyślnie dla superusera)"
++msgstr "odtworzenie informacji o uprawnieniach plików (domyślnie dla superusera)"
+ 
+ #: src/tar.c:494
+-msgid ""
+-"apply the user's umask when extracting permissions from the archive (default "
+-"for ordinary users)"
+-msgstr ""
+-"użycie umask użytkownika przy odtwarzaniu uprawnień z archiwum (domyślnie "
+-"dla zwykłych użytkowników)"
++msgid "apply the user's umask when extracting permissions from the archive (default for ordinary users)"
++msgstr "użycie umask użytkownika przy odtwarzaniu uprawnień z archiwum (domyślnie dla zwykłych użytkowników)"
+ 
+ #: src/tar.c:496
+ msgid "sort names to extract to match archive"
+@@ -1614,12 +1561,8 @@
+ msgstr "to samo co równocześnie -p i -s"
+ 
+ #: src/tar.c:501
+-msgid ""
+-"delay setting modification times and permissions of extracted directories "
+-"until the end of extraction"
+-msgstr ""
+-"ustawianie czasów zmian i uprawnień odtworzonych katalogów opóźnione do "
+-"końca rozpakowywania"
++msgid "delay setting modification times and permissions of extracted directories until the end of extraction"
++msgstr "ustawianie czasów zmian i uprawnień odtworzonych katalogów opóźnione do końca rozpakowywania"
+ 
+ #: src/tar.c:504
+ msgid "cancel the effect of --delay-directory-restore option"
+@@ -1754,12 +1697,8 @@
+ msgstr "TEKST"
+ 
+ #: src/tar.c:588
+-msgid ""
+-"create archive with volume name TEXT; at list/extract time, use TEXT as a "
+-"globbing pattern for volume name"
+-msgstr ""
+-"utworzenie archiwum z nazwą wolumenu TEKST. Przy wypisywaniu/rozpakowaniu "
+-"TEKST będzie użyty jako wzorzec dopasowania dla nazwy"
++msgid "create archive with volume name TEXT; at list/extract time, use TEXT as a globbing pattern for volume name"
++msgstr "utworzenie archiwum z nazwą wolumenu TEKST. Przy wypisywaniu/rozpakowaniu TEKST będzie użyty jako wzorzec dopasowania dla nazwy"
+ 
+ #: src/tar.c:593
+ msgid "Compression options:"
+@@ -1767,14 +1706,11 @@
+ 
+ #: src/tar.c:595
  msgid "use archive suffix to determine the compression program"
- msgstr ""
--"u�ycie przyrostka nazwy archiwum dla wyznaczenie programu kompresuj�cego"
-+"u�ycie przyrostka nazwy archiwum do wyznaczenia programu kompresuj�cego"
+-msgstr ""
+-"użycie przyrostka nazwy archiwum do wyznaczenia programu kompresującego"
++msgstr "użycie przyrostka nazwy archiwum do ustalenia programu kompresującego"
  
- #: src/tar.c:598
+ #: src/tar.c:597
 -#, fuzzy
- msgid "do not use use archive suffix to determine the compression program"
- msgstr ""
--"u�ycie przyrostka nazwy archiwum dla wyznaczenie programu kompresuj�cego"
-+"bez u�ywania przyrostka nazwy archiwum do wyznaczenia programu kompresuj�cego"
+ msgid "do not use archive suffix to determine the compression program"
+-msgstr ""
+-"bez używania przyrostka nazwy archiwum do wyznaczenia programu kompresującego"
++msgstr "bez używania przyrostka nazwy archiwum do wyznaczenia programu kompresującego"
  
- #: src/tar.c:601
+ #: src/tar.c:600
  msgid "filter the archive through bzip2"
-@@ -1778,9 +1776,8 @@
- msgstr "filtrowanie archiwum przez lzma"
- 
- #: src/tar.c:612
--#, fuzzy
- msgid "filter the archive through lzop"
--msgstr "filtrowanie archiwum przez gzip"
-+msgstr "filtrowanie archiwum przez lzop"
+@@ -1797,9 +1733,8 @@
+ msgstr "filtrowanie archiwum przez lzop"
  
  #: src/tar.c:613
- msgid "PROG"
-@@ -1818,7 +1815,7 @@
- 
- #: src/tar.c:630
- msgid "disable the effect of the previous --null option"
--msgstr ""
-+msgstr "wy��czenie efektu u�ycia opcji --null"
- 
- #: src/tar.c:632
- msgid "unquote filenames read with -T (default)"
-@@ -2204,6 +2201,8 @@
- "The --preserve option is deprecated, use --preserve-permissions --preserve-"
- "order instead"
- msgstr ""
-+"Opcja --preserve jest przestarza�a, zamiast niej u�yj --preserve-permissions "
-+"--preserve-order"
- 
- #: src/tar.c:1833
- msgid "Invalid record size"
-@@ -2292,11 +2291,11 @@
- 
- #: src/tar.c:2350
- msgid "Volume length cannot be less than record size"
--msgstr ""
-+msgstr "D�ugo�� cz�ci nie mo�e by� mniejsza od wielko�ci rekordu"
- 
- #: src/tar.c:2353
- msgid "--preserve-order is not compatible with --listed-incremental"
--msgstr ""
-+msgstr "opcja --preserve-order nie mo�e by� u�ywana z --listed-incremental"
- 
- #: src/tar.c:2364
- msgid "Cowardly refusing to create an empty archive"
-@@ -2313,7 +2312,7 @@
- #: src/tar.c:2529
- #, c-format
- msgid "Exiting with failure status due to previous errors"
--msgstr ""
-+msgstr "Zako�czenie w stanie b��du z powodu uprzednich b��d�w"
- 
- #: src/update.c:86
- #, c-format
-@@ -2578,12 +2577,12 @@
- #: tests/genfile.c:264
- #, c-format
- msgid "requested file length %lu, actual %lu"
--msgstr ""
-+msgstr "��dana d�ugo�� pliku %lu, faktyczna %lu"
- 
- #: tests/genfile.c:268
- #, c-format
- msgid "created file is not sparse"
--msgstr ""
-+msgstr "utworzony plik nie jest rzadki"
- 
- #: tests/genfile.c:353
- #, c-format
-@@ -2674,10 +2673,3 @@
- #, c-format
- msgid "too many arguments"
- msgstr "za du�o argument�w"
--
 -#, fuzzy
--#~ msgid "cancel effect of the previous --transform-links option"
--#~ msgstr "wy��czenie efektu opcji --delay-directory-restore"
--
--#~ msgid "Error exit delayed from previous errors"
--#~ msgstr "Zako�czenie z b��dem z powodu uprzednich b��d�w"
+ msgid "filter the archive through xz"
+-msgstr "filtrowanie archiwum przez gzip"
++msgstr "filtrowanie archiwum przez xz"
+ 
+ #: src/tar.c:614
+ msgid "PROG"
+@@ -1815,9 +1750,7 @@
+ 
+ #: src/tar.c:623
+ msgid "add given FILE to the archive (useful if its name starts with a dash)"
+-msgstr ""
+-"dodanie podanego PLIKU do archiwum (przydatne jeżeli jego nazwa startuje od "
+-"myślnika)"
++msgstr "dodanie podanego PLIKU do archiwum (przydatne jeżeli jego nazwa startuje od myślnika)"
+ 
+ #: src/tar.c:624
+ msgid "DIR"
+@@ -1841,9 +1774,7 @@
+ 
+ #: src/tar.c:633
+ msgid "unquote filenames read with -T (default)"
+-msgstr ""
+-"usunięcie znaków cytowania z nazw plików czytanych poprzez opcję -T "
+-"(domyślnie)"
++msgstr "usunięcie znaków cytowania z nazw plików czytanych poprzez opcję -T (domyślnie)"
+ 
+ #: src/tar.c:635
+ msgid "do not unquote filenames read with -T"
+@@ -1862,12 +1793,8 @@
+ msgstr "wykluczenie nazw pasujących do wzorców w PLIKU"
+ 
+ #: src/tar.c:641
+-msgid ""
+-"exclude contents of directories containing CACHEDIR.TAG, except for the tag "
+-"file itself"
+-msgstr ""
+-"wykluczenie katalogów zawierających znacznik pamięci podręcznej CACHEDIR."
+-"TAG, oprócz samych plików znacznika"
++msgid "exclude contents of directories containing CACHEDIR.TAG, except for the tag file itself"
++msgstr "wykluczenie katalogów zawierających znacznik pamięci podręcznej CACHEDIR.TAG, oprócz samych plików znacznika"
+ 
+ #: src/tar.c:644
+ msgid "exclude everything under directories containing CACHEDIR.TAG"
+@@ -1950,12 +1877,8 @@
+ msgstr "NAPIS"
+ 
+ #: src/tar.c:679
+-msgid ""
+-"backup before removal, override usual suffix ('~' unless overridden by "
+-"environment variable SIMPLE_BACKUP_SUFFIX)"
+-msgstr ""
+-"kopia zapasowa przed usunięciem, zmiana domyślnego przyrostka ('~', jeżeli "
+-"nie zmieniony przez zmienną środowiska SIMPLE_BACKUP_SUFFIX)"
++msgid "backup before removal, override usual suffix ('~' unless overridden by environment variable SIMPLE_BACKUP_SUFFIX)"
++msgstr "kopia zapasowa przed usunięciem, zmiana domyślnego przyrostka ('~', jeżeli nie zmieniony przez zmienną środowiska SIMPLE_BACKUP_SUFFIX)"
+ 
+ #: src/tar.c:684
+ msgid "File name transformations:"
+@@ -1963,9 +1886,7 @@
+ 
+ #: src/tar.c:686
+ msgid "strip NUMBER leading components from file names on extraction"
+-msgstr ""
+-"ucięcie przed rozpakowaniem LICZBY początkowych elementów ścieżki z nazw "
+-"plików"
++msgstr "ucięcie przed rozpakowaniem LICZBY początkowych elementów ścieżki z nazw plików"
+ 
+ #: src/tar.c:688
+ msgid "EXPRESSION"
+@@ -1977,9 +1898,7 @@
+ 
+ #: src/tar.c:695
+ msgid "File name matching options (affect both exclude and include patterns):"
+-msgstr ""
+-"Opcje filtracji nazw plików (dotyczą zarówno wzorców wykluczania jak "
+-"włączania):"
++msgstr "Opcje filtracji nazw plików (dotyczą zarówno wzorców wykluczania jak włączania):"
+ 
+ #: src/tar.c:698
+ msgid "ignore case"
+@@ -2023,8 +1942,7 @@
+ 
+ #: src/tar.c:722
+ msgid "display progress messages every NUMBERth record (default 10)"
+-msgstr ""
+-"wypisywanie co ILE rekordów informacji o przetwarzaniu (domyslnie co 10)"
++msgstr "wypisywanie co ILE rekordów informacji o przetwarzaniu (domyslnie co 10)"
+ 
+ #: src/tar.c:724
+ msgid "ACTION"
+@@ -2043,16 +1961,8 @@
+ msgstr "SYGNAŁ"
+ 
+ #: src/tar.c:730
+-msgid ""
+-"print total bytes after processing the archive; with an argument - print "
+-"total bytes when this SIGNAL is delivered; Allowed signals are: SIGHUP, "
+-"SIGQUIT, SIGINT, SIGUSR1 and SIGUSR2; the names without SIG prefix are also "
+-"accepted"
+-msgstr ""
+-"wypisanie całkowitej liczby bajtów po przetworzeniu archiwum; z argumentem - "
+-"wypisanie całkowitej liczby bajtów kiedy zostanie wysłany SYGNAŁ; Dozwolone "
+-"sygnały: SIGHUP, SIGQUIT, SIGINT, SIGUSR1 i SIGUSR2; nazwy bez prefiksu SIG "
+-"są też akceptowane"
++msgid "print total bytes after processing the archive; with an argument - print total bytes when this SIGNAL is delivered; Allowed signals are: SIGHUP, SIGQUIT, SIGINT, SIGUSR1 and SIGUSR2; the names without SIG prefix are also accepted"
++msgstr "wypisanie całkowitej liczby bajtów po przetworzeniu archiwum; z argumentem - wypisanie całkowitej liczby bajtów kiedy zostanie wysłany SYGNAŁ; Dozwolone sygnały: SIGHUP, SIGQUIT, SIGINT, SIGUSR1 i SIGUSR2; nazwy bez prefiksu SIG są też akceptowane"
+ 
+ #: src/tar.c:735
+ msgid "print file modification dates in UTC"
+@@ -2075,12 +1985,8 @@
+ msgstr "wypisanie domyślnych ustawień tar-a"
+ 
+ #: src/tar.c:746
+-msgid ""
+-"when listing or extracting, list each directory that does not match search "
+-"criteria"
+-msgstr ""
+-"wypisywanie każdego katalogu nie pasującego do kryteriów szukania przy "
+-"wypisywaniu albo rozpakowywaniu archiwum"
++msgid "when listing or extracting, list each directory that does not match search criteria"
++msgstr "wypisywanie każdego katalogu nie pasującego do kryteriów szukania przy wypisywaniu albo rozpakowywaniu archiwum"
+ 
+ #: src/tar.c:748
+ msgid "show file or archive names after transformation"
+@@ -2092,9 +1998,7 @@
+ 
+ #: src/tar.c:752
+ msgid "set name quoting style; see below for valid STYLE values"
+-msgstr ""
+-"ustawienie stylu ujmowania nazw w cudzysłowy; poniżej dozwolone wartości "
+-"STYLU"
++msgstr "ustawienie stylu ujmowania nazw w cudzysłowy; poniżej dozwolone wartości STYLU"
+ 
+ #: src/tar.c:754
+ msgid "additionally quote characters from STRING"
+@@ -2109,12 +2013,8 @@
+ msgstr "Opcje kompatybilności:"
+ 
+ #: src/tar.c:764
+-msgid ""
+-"when creating, same as --old-archive; when extracting, same as --no-same-"
+-"owner"
+-msgstr ""
+-"przy tworzeniu: to samo co --old-archive przy odtwarzaniu: to co --no-same-"
+-"owner"
++msgid "when creating, same as --old-archive; when extracting, same as --no-same-owner"
++msgstr "przy tworzeniu: to samo co --old-archive przy odtwarzaniu: to co --no-same-owner"
+ 
+ #: src/tar.c:769
+ msgid "Other options:"
+@@ -2215,12 +2115,8 @@
+ msgstr "Błędny właściciel"
+ 
+ #: src/tar.c:1822
+-msgid ""
+-"The --preserve option is deprecated, use --preserve-permissions --preserve-"
+-"order instead"
+-msgstr ""
+-"Opcja --preserve jest przestarzała, zamiast niej użyj --preserve-permissions "
+-"--preserve-order"
++msgid "The --preserve option is deprecated, use --preserve-permissions --preserve-order instead"
++msgstr "Opcja --preserve jest przestarzała, zamiast niej użyj --preserve-permissions --preserve-order"
+ 
+ #: src/tar.c:1832
+ msgid "Invalid record size"
+@@ -2388,9 +2284,7 @@
+ #: src/xheader.c:778
+ #, c-format
+ msgid "Generated keyword/value pair is too long (keyword=%s, length=%s)"
+-msgstr ""
+-"Wygenerowana para słowo kluczowe/wartość jest za długa (słowo kluczowe=%s, "
+-"długość=%s)"
++msgstr "Wygenerowana para słowo kluczowe/wartość jest za długa (słowo kluczowe=%s, długość=%s)"
+ 
+ #. TRANSLATORS: The first %s is the pax extended header keyword
+ #. (atime, gid, etc.).
+@@ -2513,26 +2407,19 @@
+ 
+ #: tests/genfile.c:153
+ msgid "Print contents of struct stat for each given file. Default FORMAT is: "
+-msgstr ""
+-"Wypisanie zawartości  struct stat  dla każdego podanego pliku. Domyślny "
+-"FORMAT: "
++msgstr "Wypisanie zawartości  struct stat  dla każdego podanego pliku. Domyślny FORMAT: "
+ 
+ #: tests/genfile.c:160
+ msgid "Synchronous execution options:"
+ msgstr "Opcje równoczesnego wykonywania:"
+ 
+ #: tests/genfile.c:163
+-msgid ""
+-"Execute given COMMAND. Useful with --checkpoint and one of --cut, --append, "
+-"--touch"
+-msgstr ""
+-"Wykonanie podanego POLECENIA. Przydatne z --checkpoint i jednym z --cut, --"
+-"append albo --touch"
++msgid "Execute given COMMAND. Useful with --checkpoint and one of --cut, --append, --touch"
++msgstr "Wykonanie podanego POLECENIA. Przydatne z --checkpoint i jednym z --cut, --append albo --touch"
+ 
+ #: tests/genfile.c:166
+ msgid "Perform given action (see below) upon reaching checkpoint NUMBER"
+-msgstr ""
+-"Wykonanie podanej akcji (zobacz niżej) po napotkaniu punktu kontrolnego NUMER"
++msgstr "Wykonanie podanej akcji (zobacz niżej) po napotkaniu punktu kontrolnego NUMER"
+ 
+ #: tests/genfile.c:169
+ msgid "Set date for next --touch option"
+@@ -2543,26 +2430,16 @@
+ msgstr "Wypisanie wykonanych punktów kontrolnych i kodu wyjścia POLECENIA"
+ 
+ #: tests/genfile.c:177
+-msgid ""
+-"Synchronous execution actions. These are executed when checkpoint number "
+-"given by --checkpoint option is reached."
+-msgstr ""
+-"Akcje równoczesnego wykonania. Są podejmowane po osiągnięciu punktu "
+-"kontrolnego o numerze podanym przez opcję --checkpoint"
++msgid "Synchronous execution actions. These are executed when checkpoint number given by --checkpoint option is reached."
++msgstr "Akcje równoczesnego wykonania. Są podejmowane po osiągnięciu punktu kontrolnego o numerze podanym przez opcję --checkpoint"
+ 
+ #: tests/genfile.c:180
+-msgid ""
+-"Truncate FILE to the size specified by previous --length option (or 0, if it "
+-"is not given)"
+-msgstr ""
+-"Obcięcie PLIKU do rozmiaru podanego przez poprzednia opcję --length (albo 0, "
+-"jeżeli nie został podany)"
++msgid "Truncate FILE to the size specified by previous --length option (or 0, if it is not given)"
++msgstr "Obcięcie PLIKU do rozmiaru podanego przez poprzednia opcję --length (albo 0, jeżeli nie został podany)"
+ 
+ #: tests/genfile.c:184
+ msgid "Append SIZE bytes to FILE. SIZE is given by previous --length option."
+-msgstr ""
+-"Dodanie ROZMIAR bajtów do PLIKU. ROZMIAR jak podany przez poprzednią opcję --"
+-"length."
++msgstr "Dodanie ROZMIAR bajtów do PLIKU. ROZMIAR jak podany przez poprzednią opcję --length."
+ 
+ #: tests/genfile.c:187
+ msgid "Update the access and modification times of FILE"
+@@ -2634,8 +2511,7 @@
+ #: tests/genfile.c:507
+ #, c-format
+ msgid "cannot generate sparse files on standard output, use --file option"
+-msgstr ""
+-"nie można utworzyć pliku rzadkiego na standardowym wyjściu, użyj opcji --file"
++msgstr "nie można utworzyć pliku rzadkiego na standardowym wyjściu, użyj opcji --file"
+ 
+ #: tests/genfile.c:585
+ #, c-format
