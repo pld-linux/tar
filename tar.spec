@@ -164,12 +164,12 @@ rm -f po/stamp-po
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_prefix}%{_bindir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf %{_bindir}/tar $RPM_BUILD_ROOT%{_prefix}%{_bindir}/gtar
+ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
@@ -190,7 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README NEWS
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_prefix}%{_bindir}/*
+%attr(755,root,root) /usr/bin/*
 %{_infodir}/tar.info*
 %{_mandir}/man1/*
 %lang(de) %{_mandir}/de/man1/*
