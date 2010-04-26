@@ -24,6 +24,7 @@ Patch1:		%{name}-man.patch
 Patch2:		%{name}-info.patch
 Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-zero-block.patch
+Patch5:		am-nosilentrules.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
@@ -145,6 +146,7 @@ z pakietu dump.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %{__rm} po/stamp-po
 
