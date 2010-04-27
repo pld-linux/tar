@@ -11,7 +11,7 @@ Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
 Version:	1.23
-Release:	4
+Release:	5
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
@@ -26,6 +26,7 @@ Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-zero-block.patch
 Patch5:		am-nosilentrules.patch
 Patch6:		%{name}-fortifysourcessigabrt.patch
+Patch7:		%{name}-git.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
@@ -149,6 +150,7 @@ z pakietu dump.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %{__rm} po/stamp-po
 

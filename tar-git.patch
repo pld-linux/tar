@@ -1,0 +1,187 @@
+commit a3f1d933cc5e61037100f5e60eac45764b8b4b50
+Author: Sergey Poznyakoff <gray@gnu.org.ua>
+Date:   Thu Mar 11 12:19:32 2010 +0200
+
+    Bugfix.
+    
+    * src/names.c (collect_and_sort_names): Initialize prev_name.
+    Reported by Dmitry V. Levin.
+
+diff --git a/src/names.c b/src/names.c
+index 1146020..ea2ce76 100644
+--- a/src/names.c
++++ b/src/names.c
+@@ -871,7 +871,7 @@ void
+ collect_and_sort_names (void)
+ {
+   struct name *name;
+-  struct name *next_name, *prev_name;
++  struct name *next_name, *prev_name = NULL;
+   int num_names;
+   struct stat statbuf;
+   Hash_table *nametab;
+commit 67b4f3519d838c6f16f5b6b63c0b9b8669fb3dd9
+Author: Sergey Poznyakoff <gray@gnu.org.ua>
+Date:   Fri Mar 12 09:48:46 2010 +0200
+
+    Bugfixes.
+    
+    * src/buffer.c (check_label_pattern): Initialize result.
+    * tests/remfiles01.at: Skip if run with root privileges.
+
+diff --git a/src/buffer.c b/src/buffer.c
+index 8e1bb9b..dfc8456 100644
+--- a/src/buffer.c
++++ b/src/buffer.c
+@@ -1374,7 +1374,7 @@ static bool
+ check_label_pattern (const char *label)
+ {
+   char *string;
+-  bool result;
++  bool result = false;
+ 
+   if (fnmatch (volume_label_option, label, 0) == 0)
+     return true;
+diff --git a/tests/remfiles01.at b/tests/remfiles01.at
+index 940fd95..73752b4 100644
+--- a/tests/remfiles01.at
++++ b/tests/remfiles01.at
+@@ -30,6 +30,7 @@ AT_KEYWORDS([create remove-files remfiles01 gzip])
+ 
+ unset TAR_OPTIONS
+ AT_CHECK([
++AT_UNPRIVILEGED_PREREQ
+ AT_GZIP_PREREQ
+ AT_SORT_PREREQ
+ 
+commit 340dbf5aabfee4e1e657f8ebf202a2fee1750a63
+Author: Sergey Poznyakoff <gray@gnu.org.ua>
+Date:   Sat Mar 20 13:14:31 2010 +0200
+
+    Fix undesired error exit on receiving SIGPIPE.
+    
+    * src/tar.c: Do not ignore SIGPIPE.
+    * tests/sigpipe.at: New testcase.
+    * tests/Makefile.am, tests/testsuite.at: Add sigpipe.at
+    * tests/remfiles01.at: Fix error code expectation.
+    * NEWS: Update.
+
+diff --git a/src/tar.c b/src/tar.c
+index e3fdf7b..b127963 100644
+--- a/src/tar.c
++++ b/src/tar.c
+@@ -2570,8 +2570,6 @@ main (int argc, char **argv)
+ 
+   obstack_init (&argv_stk);
+ 
+-  /* Ensure default behavior for some signals */
+-  signal (SIGPIPE, SIG_IGN);
+   /* System V fork+wait does not work if SIGCHLD is ignored.  */
+   signal (SIGCHLD, SIG_DFL);
+ 
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index 8f16244..31811b0 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -127,6 +127,7 @@ TESTSUITE_AT = \
+  shortfile.at\
+  shortupd.at\
+  shortrec.at\
++ sigpipe.at\
+  sparse01.at\
+  sparse02.at\
+  sparse03.at\
+diff --git a/tests/remfiles01.at b/tests/remfiles01.at
+index 73752b4..86b5c03 100644
+--- a/tests/remfiles01.at
++++ b/tests/remfiles01.at
+@@ -52,7 +52,9 @@ EC=$?
+ sed -n '/(child)/p' err >&2
+ rm err
+ find . | sort
+-exit $EC
++# Gzip exit code is propagated to the shell. Usually it is
++# 141.  We convert all non-zero exits to 2 to make it predictable.
++test $EC && exit 2
+ ],
+ [2],
+ [.
+diff --git a/tests/sigpipe.at b/tests/sigpipe.at
+new file mode 100644
+index 0000000..9edca77
+--- /dev/null
++++ b/tests/sigpipe.at
+@@ -0,0 +1,39 @@
++# Process this file with autom4te to create testsuite. -*- Autotest -*-
++
++# Test suite for GNU tar.
++# Copyright (C) 2010 Free Software Foundation, Inc.
++
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 3, or (at your option)
++# any later version.
++
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++
++# You should have received a copy of the GNU General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++AT_SETUP([sigpipe handling])
++AT_KEYWORDS([sigpipe])
++
++# Description: Tar 1.23 ignored sigpipe which lead to spurious "write
++# error" diagnostics when piping output to another programs.
++# Reported-by: "Dmitry V. Levin" <ldv@altlinux.org>
++# References: http://lists.gnu.org/archive/html/bug-tar/2010-03/msg00039.html
++#             <20100319184141.GC30047@wo.int.altlinux.org>
++
++AT_CHECK([
++genfile --length 2048 --file first
++genfile --length 2048 --file second
++genfile --length 2049 --file third
++
++tar cf archive first second third
++
++tar tf archive | :
++],
++[0])
++
++AT_CLEANUP
+diff --git a/tests/testsuite.at b/tests/testsuite.at
+index 3e75ed8..9205d52 100644
+--- a/tests/testsuite.at
++++ b/tests/testsuite.at
+@@ -231,6 +231,8 @@ m4_include([remfiles01.at])
+ m4_include([remfiles02.at])
+ m4_include([remfiles03.at])
+ 
++m4_include([sigpipe.at])
++
+ m4_include([star/gtarfail.at])
+ m4_include([star/gtarfail2.at])
+ 
+commit 40dea1ae7fc892a54eae2efd30ddd8559c697525
+Author: Sergey Poznyakoff <gray@gnu.org.ua>
+Date:   Sat Mar 27 22:24:19 2010 +0200
+
+    Fix coredump.
+    
+    * src/names.c (collect_and_sort_names): Remove
+    entry from the table before freeing it.
+
+diff --git a/src/names.c b/src/names.c
+index 2beaf3e..a3c6f58 100644
+--- a/src/names.c
++++ b/src/names.c
+@@ -986,6 +986,7 @@ collect_and_sort_names (void)
+ 		{
+ 		  if (p->child)
+ 		    rebase_child_list (p->child, name);
++		  hash_delete (nametab, name);
+ 		  /* FIXME: remove_directory (p->caname); ? */
+ 		  remname (p);
+ 		  free_name (p);
