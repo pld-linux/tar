@@ -11,7 +11,7 @@ Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
 Version:	1.23
-Release:	5
+Release:	6
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
@@ -19,14 +19,12 @@ Source0:	http://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
 # Source0-md5:	41e2ca4b924ec7860e51b43ad06cdb7e
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
-Patch0:		%{name}-man-debian.patch
-Patch1:		%{name}-man.patch
-Patch2:		%{name}-info.patch
-Patch3:		%{name}-pl.po-update.patch
-Patch4:		%{name}-zero-block.patch
-Patch5:		am-nosilentrules.patch
-Patch6:		%{name}-fortifysourcessigabrt.patch
-Patch7:		%{name}-git.patch
+Patch0:		%{name}-info.patch
+Patch1:		%{name}-pl.po-update.patch
+Patch2:		%{name}-zero-block.patch
+Patch3:		am-nosilentrules.patch
+Patch4:		%{name}-fortifysourcessigabrt.patch
+Patch5:		%{name}-git.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
@@ -143,14 +141,12 @@ z pakietu dump.
 
 %prep
 %setup -q
-%patch0 -p2
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
-%patch7 -p1
 
 %{__rm} po/stamp-po
 
@@ -175,6 +171,7 @@ install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1}
 
 ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 
+help2man ./src/tar -o tar.1
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
