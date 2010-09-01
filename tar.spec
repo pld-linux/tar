@@ -30,6 +30,7 @@ BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
 BuildRequires:	gettext-devel >= 0.16
+BuildRequires:	help2man
 BuildRequires:	sed >= 4.0
 BuildRequires:	texinfo
 Conflicts:	amanda-client < 2.5.2
