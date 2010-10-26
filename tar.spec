@@ -10,24 +10,22 @@ Summary(pl.UTF-8):	Program do archiwizacji (GNU)
 Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
-Version:	1.23
-Release:	6
+Version:	1.24
+Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
 Source0:	http://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	41e2ca4b924ec7860e51b43ad06cdb7e
+# Source0-md5:	ba905d8b1dcf06254e8025cc4468d8e5
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-pl.po-update.patch
 Patch2:		%{name}-zero-block.patch
-Patch3:		am-nosilentrules.patch
-Patch4:		%{name}-fortifysourcessigabrt.patch
-Patch5:		%{name}-git.patch
+Patch3:		%{name}-fortifysourcessigabrt.patch
 URL:		http://www.gnu.org/software/tar/tar.html
-BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	gettext-devel >= 0.16
 BuildRequires:	help2man
@@ -146,8 +144,6 @@ z pakietu dump.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
 
 %{__rm} po/stamp-po
 
@@ -157,7 +153,8 @@ z pakietu dump.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-silent-rules
 
 %{__make}
 
