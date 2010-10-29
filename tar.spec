@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_with	tests	# perform make check
-#
+
 Summary:	A GNU file archiving program
 Summary(de.UTF-8):	GNU-Magnetband-Archivierprogramm (tar)
 Summary(es.UTF-8):	GNU Tape Archiver (tar)
@@ -11,7 +11,7 @@ Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
 Version:	1.24
-Release:	1
+Release:	0.1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
