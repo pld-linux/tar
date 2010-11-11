@@ -1,15 +1,20 @@
---- tar-1.24/po/pl.po.orig	2010-10-24 22:08:51.000000000 +0200
-+++ tar-1.24/po/pl.po	2010-10-25 22:31:11.755736853 +0200
-@@ -6,13 +6,12 @@
- #: src/create.c:1550
+--- tar-1.25/po/pl.po.orig	2010-11-07 16:08:01.000000000 +0100
++++ tar-1.25/po/pl.po	2010-11-11 08:12:58.587095747 +0100
+@@ -2,17 +2,16 @@
+ # Copyright (C) 1996, 1997, 2000, 2001, 2003, 2004, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+ # This file is distributed under the same license as the tar package.
+ # Rafał Maszkowski <rzm@icm.edu.pl>, 1996, 1997, 2000, 2001, 2003, 2004, 2006-2010.	„”
+-# Thanks to Jakub Bogusz for remarks and corrections, 2003, 2004, 2007, 2008
++# Thanks to Jakub Bogusz for remarks and corrections, 2003, 2004, 2007, 2008, 2010
+ #: src/create.c:1552
  msgid ""
  msgstr ""
 -"Project-Id-Version: tar 1.23.90\n"
 +"Project-Id-Version: tar 1.24\n"
  "Report-Msgid-Bugs-To: bug-tar@gnu.org\n"
- "POT-Creation-Date: 2010-10-24 23:08+0300\n"
+ "POT-Creation-Date: 2010-11-07 17:07+0200\n"
 -"PO-Revision-Date: 2010-07-13 14:50+0200\n"
-+"PO-Revision-Date: 2010-10-25 10:00+0200\n"
++"PO-Revision-Date: 2010-10-25 23:10+0200\n"
  "Last-Translator: Rafał Maszkowski <rzm@icm.edu.pl>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 -"Language: pl\n"
