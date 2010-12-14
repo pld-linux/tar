@@ -11,7 +11,7 @@ Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
 Version:	1.25
-Release:	1.1
+Release:	2
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
