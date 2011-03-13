@@ -1,8 +1,8 @@
---- tar-1.14/src/create.c.sock	Tue Oct 23 15:00:52 2001
-+++ tar-1.14/src/create.c	Tue Oct 23 15:02:33 2001
-@@ -1128,6 +1128,16 @@
-     }
-   else if (is_avoided_name (p))
+--- tar-1.16/src/create.c.orig	2006-10-16 08:33:55.000000000 +0200
++++ tar-1.16/src/create.c	2006-11-01 14:35:06.320460500 +0100
+@@ -1464,6 +1464,16 @@
+ 
+   if (is_avoided_name (p))
      return;
 +  else if (S_ISSOCK (st->stat.st_mode))
 +    {
@@ -14,23 +14,23 @@
 +      WARN ((0, 0, _("%s: door ignored"), quotearg_colon (p)));
 +      return;
 +    }
+ 
+   is_dir = S_ISDIR (st->stat.st_mode) != 0;
+ 
+@@ -1636,16 +1646,6 @@
+     type = BLKTYPE;
+   else if (S_ISFIFO (st->stat.st_mode))
+     type = FIFOTYPE;
+-  else if (S_ISSOCK (st->stat.st_mode))
+-    {
+-      WARN ((0, 0, _("%s: socket ignored"), quotearg_colon (p)));
+-      return;
+-    }
+-  else if (S_ISDOOR (st->stat.st_mode))
+-    {
+-      WARN ((0, 0, _("%s: door ignored"), quotearg_colon (p)));
+-      return;
+-    }
    else
      {
-       /* Check for multiple links.  */
-@@ -1507,16 +1517,6 @@
- 	type = BLKTYPE;
-       else if (S_ISFIFO (st->stat.st_mode))
- 	type = FIFOTYPE;
--      else if (S_ISSOCK (st->stat.st_mode))
--	{
--	  WARN ((0, 0, _("%s: socket ignored"), quotearg_colon (p)));
--	  return;
--	}
--      else if (S_ISDOOR (st->stat.st_mode))
--	{
--	  WARN ((0, 0, _("%s: door ignored"), quotearg_colon (p)));
--	  return;
--	}
-       else
- 	{
- 	  unknown_file_error (p);
+       unknown_file_error (p);

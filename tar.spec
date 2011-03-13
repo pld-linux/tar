@@ -1,34 +1,36 @@
+#
+# Conditional build:
+%bcond_with	tests	# perform make check
+
 Summary:	A GNU file archiving program
-Summary(de):	GNU-Magnetband-Archivierprogramm (tar)
-Summary(es):	GNU Tape Archiver (tar)
-Summary(fr):	Programme d'archivage GNU (tar: GNU Tape Archiver)
-Summary(pl):	Program do archiwizacji (GNU)
-Summary(pt_BR):	GNU Tape Archiver (tar)
-Summary(tr):	Yaygýn kullanýlan yedekleyici
+Summary(de.UTF-8):	GNU-Magnetband-Archivierprogramm (tar)
+Summary(es.UTF-8):	GNU Tape Archiver (tar)
+Summary(fr.UTF-8):	Programme d'archivage GNU (tar: GNU Tape Archiver)
+Summary(pl.UTF-8):	Program do archiwizacji (GNU)
+Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
+Summary(tr.UTF-8):	YaygÄ±n kullanÄ±lan yedekleyici
 Name:		tar
-Version:	1.15.1
-Release:	2
+Version:	1.26
+Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v3+
 Group:		Applications/Archiving
-Source0:	ftp://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	57da3c38f8e06589699548a34d5a5d07
+Source0:	http://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
+# Source0-md5:	2cee42a2ff4f1cd4f9298eeeb2264519
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
-Patch0:		%{name}-man-debian.patch
-Patch1:		%{name}-man.patch
-Patch2:		%{name}-info.patch
-Patch3:		%{name}-pl.po-update.patch
-Patch4:		%{name}-sock.patch
-Patch5:		%{name}-dots.patch
-Patch6:		%{name}-zero-block.patch
+Patch0:		%{name}-info.patch
+Patch1:		%{name}-pl.po-update.patch
+Patch2:		%{name}-zero-block.patch
 URL:		http://www.gnu.org/software/tar/tar.html
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.8
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
-BuildRequires:	gettext-devel >= 0.14.3
+BuildRequires:	gettext-devel >= 0.16
+BuildRequires:	help2man
 BuildRequires:	sed >= 4.0
 BuildRequires:	texinfo
+Conflicts:	amanda-client < 2.5.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_exec_prefix	/
@@ -48,108 +50,113 @@ to perform incremental and full backups.
 If you want to use Tar for remote backups, you'll also need to install
 the rmt package.
 
-%description -l de
+%description -l de.UTF-8
 Das GNU tar-Programm speichert mehrere Dateien in ein Archiv, und kann
 einzelne Dateien daraus wiederherstellen (oder auch alle Dateien). Tar
-kann auch benutzt werden, um einem Archiv Dateien hinzuzufügen, und um
-die Liste der Dateien im Archiv anzuzeigen oder zu verändern.
+kann auch benutzt werden, um einem Archiv Dateien hinzuzufÃ¼gen, und um
+die Liste der Dateien im Archiv anzuzeigen oder zu verÃ¤ndern.
 
-Tar enthält multivolume-Support, automatische
-Archivkompression/dekompression, the Möglichkeit, Dateien per Netzwerk
-zu archivieren und die Möglichkeit zu inkrementellen backups.
+Tar enthÃ¤lt multivolume-Support, automatische
+Archivkompression/dekompression, the MÃ¶glichkeit, Dateien per Netzwerk
+zu archivieren und die MÃ¶glichkeit zu inkrementellen backups.
 
-Wenn Sie tar für Netzwerkbackups benutzen wollen, brauchen Sie
-außerdem das rmt-Paket.
+Wenn Sie tar fÃ¼r Netzwerkbackups benutzen wollen, brauchen Sie
+auÃŸerdem das rmt-Paket.
 
-%description -l es
+%description -l es.UTF-8
 GNU "tar" guarda varios archivos juntos, en una cinta o archivo de
 disco, y puede restaurar archivos individuales de este almacenaje.
-Incluye soporte para multivolúmenes, habilidad de almacenar archivos
-dispersos, compresión/descompresión automática, almacenajes remotos y
-características especiales que permiten "tar" ser usado para backups
+Incluye soporte para multivolÃºmenes, habilidad de almacenar archivos
+dispersos, compresiÃ³n/descompresiÃ³n automÃ¡tica, almacenajes remotos y
+caracterÃ­sticas especiales que permiten "tar" ser usado para backups
 incrementales y completos. Si deseas hacer backups remotos con tar, te
-hará falta instalar el paquete "rmt".
+harÃ¡ falta instalar el paquete "rmt".
 
-%description -l fr
+%description -l fr.UTF-8
 Le programme GNU tar permet de regrouper plusieurs fichiers en une
-seule archive et d'effectuer diverses opérations sur cette archive
-(extraction d'un fichier particulier, mise à jour, ajout d'un nouveau
+seule archive et d'effectuer diverses opÃ©rations sur cette archive
+(extraction d'un fichier particulier, mise Ã  jour, ajout d'un nouveau
 fichier, ...).
 
-Tar gère les archives multi-volumes, la compression et la
-décompression de manière transparente ainsi que la possibilité de
-réaliser des sauvegardes incrémentales et des sauvegardes complètes.
+Tar gÃ¨re les archives multi-volumes, la compression et la
+dÃ©compression de maniÃ¨re transparente ainsi que la possibilitÃ© de
+rÃ©aliser des sauvegardes incrÃ©mentales et des sauvegardes complÃ¨tes.
 
 Si vous comptez utiliser Tar pour des sauvegardes distantes, vous
-devriez également installer le programme rmt.
+devriez Ã©galement installer le programme rmt.
 
-Tar devrait être installé sur tout système car ses capacité de
-(dé)compression sont essentielles pour travailler sur les fichiers.
+Tar devrait Ãªtre installÃ© sur tout systÃ¨me car ses capacitÃ© de
+(dÃ©)compression sont essentielles pour travailler sur les fichiers.
 
-%description -l pl
-Program GNU tar s³u¿y do zapisywania wielu plików w pojedynczym
-archiwum i mo¿e tak¿e s³u¿yæ do odzyskiwania z tak preparowanych
-archiwów pojedynczych plików (lub wszystkich). Za jego pomoc± mo¿na
-tak¿e dodawaæ nowe pliki do ju¿ istniej±cego archiwum.
+%description -l pl.UTF-8
+Program GNU tar sÅ‚uÅ¼y do zapisywania wielu plikÃ³w w pojedynczym
+archiwum i moÅ¼e takÅ¼e sÅ‚uÅ¼yÄ‡ do odzyskiwania z tak preparowanych
+archiwÃ³w pojedynczych plikÃ³w (lub wszystkich). Za jego pomocÄ… moÅ¼na
+takÅ¼e dodawaÄ‡ nowe pliki do juÅ¼ istniejÄ…cego archiwum.
 
-GNU tar umo¿liwia robienie wieloczê¶ciowych archiwów (multivolume
-archive), automatyczn± kompresjê i dekompresjê samego archiwum a tak¿e
-ma mo¿liwo¶æ operowania na zdalnych archiwach co jest przydatne przy
-sporz±dzaniu przyrostowych i pe³nych archiwów zasobów.
+GNU tar umoÅ¼liwia robienie wieloczÄ™Å›ciowych archiwÃ³w (multivolume
+archive), automatycznÄ… kompresjÄ™ i dekompresjÄ™ samego archiwum a takÅ¼e
+ma moÅ¼liwoÅ›Ä‡ operowania na zdalnych archiwach co jest przydatne przy
+sporzÄ…dzaniu przyrostowych i peÅ‚nych archiwÃ³w zasobÃ³w.
 
-Je¿eli zamierzasz u¿ywaæ programu tar do operowania na zdalnych
-archiwach powiniene¶ doinstalowaæ pakiet rmt.
+JeÅ¼eli zamierzasz uÅ¼ywaÄ‡ programu tar do operowania na zdalnych
+archiwach powinieneÅ› doinstalowaÄ‡ pakiet rmt.
 
-GNU tar s³u¿y do zapisywania wielu plików na ta¶mê lub dysk. Mo¿e
-odtwarzaæ pojedyncze pliki z archiwum. Umo¿liwia zapis du¿ego archiwum
-z podzia³em na wiele no¶ników. Tar obs³uguje tak¿e automatyczn±
-kompresjê/dekompresjê i archiwa zdalne. Posiada specjalne opcje do
-robienia pe³nych i przyrostowych kopii bezpieczeñstwa. Aby tworzyæ
-zdalne archiwa tar-a trzeba zainstalowaæ pakiet rmt.
+GNU tar sÅ‚uÅ¼y do zapisywania wielu plikÃ³w na taÅ›mÄ™ lub dysk. MoÅ¼e
+odtwarzaÄ‡ pojedyncze pliki z archiwum. UmoÅ¼liwia zapis duÅ¼ego archiwum
+z podziaÅ‚em na wiele noÅ›nikÃ³w. Tar obsÅ‚uguje takÅ¼e automatycznÄ…
+kompresjÄ™/dekompresjÄ™ i archiwa zdalne. Posiada specjalne opcje do
+robienia peÅ‚nych i przyrostowych kopii bezpieczeÅ„stwa. Aby tworzyÄ‡
+zdalne archiwa tar-a trzeba zainstalowaÄ‡ pakiet rmt.
 
-%description -l pt_BR
-GNU "tar" guarda vários arquivos juntos em uma fita ou arquivo de
+%description -l pt_BR.UTF-8
+GNU "tar" guarda vÃ¡rios arquivos juntos em uma fita ou arquivo de
 disco, e pode restaurar arquivos individuais desta armazenagem. Ele
 inclui suporte para multi-volumes, habilidade de armazenar arquivos
-dispersos, compressão/descompressão automática, armazenamentos remotos
-e características especiais que permitem "tar" ser usado para backups
-incrementais e completos. Se você deseja fazer backups remotos com
-tar, você irá precisar instalar o pacote "rmt".
+dispersos, compressÃ£o/descompressÃ£o automÃ¡tica, armazenamentos remotos
+e caracterÃ­sticas especiais que permitem "tar" ser usado para backups
+incrementais e completos. Se vocÃª deseja fazer backups remotos com
+tar, vocÃª irÃ¡ precisar instalar o pacote "rmt".
 
-%description -l tr
-GNU tar, birden çok dosyayý tek bir manyetik bant ya da disk üzerinde
-arþivleyebildiði gibi, bu dosyalarýn arþivden tek tek geri
-yüklenmesine de izin verir. Çok kýsýmlý arþivleri, otomatik arþiv
-sýkýþtýrma ve açmayý, uzak arþivleri, artýmsal yedeklemeyi destekler.
+%description -l tr.UTF-8
+GNU tar, birden Ã§ok dosyayÄ± tek bir manyetik bant ya da disk Ã¼zerinde
+arÅŸivleyebildiÄŸi gibi, bu dosyalarÄ±n arÅŸivden tek tek geri
+yÃ¼klenmesine de izin verir. Ã‡ok kÄ±sÄ±mlÄ± arÅŸivleri, otomatik arÅŸiv
+sÄ±kÄ±ÅŸtÄ±rma ve aÃ§mayÄ±, uzak arÅŸivleri, artÄ±msal yedeklemeyi destekler.
+
+%package rmt
+Summary:	tar's version of rmt utility
+Summary(pl.UTF-8):	NarzÄ™dzie rmt z pakietu tar
+Group:		Applications/Archiving
+
+%description rmt
+This package provdes rmt utility which can be used instead of the one
+coming from dump project.
+
+%description rmt -l pl.UTF-8
+Pakiet ten dostarcza narzÄ™dzie rmt, ktÃ³re moÅ¼e byÄ‡ uÅ¼yte zamiast tego
+z pakietu dump.
 
 %prep
 %setup -q
-%patch0 -p2
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
 
-rm -f po/stamp-po
-
-# temporary (configure.ac uses gl_AC_TYPE_LONG_LONG while gettext 0.14
-# defines jm_AC_TYPE_LONG_LONG)
-mv -f m4/{,g}longlong.m4
-
-sed -i -e 's/jm_AC_TYPE_UINTMAX_T/gl_AC_TYPE_UINTMAX_T/' configure.ac
+%{__rm} po/stamp-po
 
 %build
 %{__gettextize}
-%{__autoheader}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-silent-rules
 
 %{__make}
+
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -160,35 +167,39 @@ install -d $RPM_BUILD_ROOT{/usr/bin,%{_mandir}/man1}
 
 ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 
+help2man ./src/tar -o tar.1
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/no
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+%post	-p /sbin/postshell
+-/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+%postun	-p /sbin/postshell
+-/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README NEWS
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) %{_bindir}/tar
+%attr(755,root,root) /usr/bin/gtar
 %{_infodir}/tar.info*
-%{_mandir}/man1/*
-%lang(de) %{_mandir}/de/man1/*
-%lang(es) %{_mandir}/es/man1/*
-%lang(fi) %{_mandir}/fi/man1/*
-%lang(fr) %{_mandir}/fr/man1/*
-%lang(hu) %{_mandir}/hu/man1/*
-%lang(id) %{_mandir}/id/man1/*
-%lang(it) %{_mandir}/it/man1/*
-%lang(ja) %{_mandir}/ja/man1/*
-%lang(nl) %{_mandir}/nl/man1/*
-%lang(pl) %{_mandir}/pl/man1/*
+%{_mandir}/man1/tar.1*
+%lang(de) %{_mandir}/de/man1/tar.1*
+%lang(es) %{_mandir}/es/man1/tar.1*
+%lang(fi) %{_mandir}/fi/man1/tar.1*
+%lang(fr) %{_mandir}/fr/man1/tar.1*
+%lang(hu) %{_mandir}/hu/man1/tar.1*
+%lang(id) %{_mandir}/id/man1/tar.1*
+%lang(it) %{_mandir}/it/man1/tar.1*
+%lang(ja) %{_mandir}/ja/man1/tar.1*
+%lang(nl) %{_mandir}/nl/man1/tar.1*
+%lang(pl) %{_mandir}/pl/man1/tar.1*
+
+%files rmt
+%defattr(644,root,root,755)
+%attr(755,root,root) /sbin/rmt
