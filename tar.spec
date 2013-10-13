@@ -168,6 +168,7 @@ ln -sf %{_bindir}/tar $RPM_BUILD_ROOT/usr/bin/gtar
 help2man ./src/tar -o tar.1
 install tar.1 $RPM_BUILD_ROOT%{_mandir}/man1
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/README.tar-non-english-man-pages
 
 %find_lang %{name}
 
