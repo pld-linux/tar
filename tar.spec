@@ -25,7 +25,7 @@ URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
-BuildRequires:	gettext-devel >= 0.16
+BuildRequires:	gettext-tools >= 0.16
 BuildRequires:	help2man
 BuildRequires:	sed >= 4.0
 BuildRequires:	texinfo
