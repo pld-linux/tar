@@ -10,18 +10,17 @@ Summary(pl.UTF-8):	Program do archiwizacji (GNU)
 Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
-Version:	1.30
-Release:	2
+Version:	1.31
+Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
-Source0:	http://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	8404e4c1fc5a3000228ab2b8ad674a65
+Source0:	https://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
+# Source0-md5:	77afa35b696c8d760331fa0e12c2fac9
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-zero-block.patch
-Patch2:		zstd.patch
 URL:		http://www.gnu.org/software/tar/tar.html
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -141,7 +140,6 @@ z pakietu dump.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %{__rm} po/stamp-po
 
