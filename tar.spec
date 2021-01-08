@@ -10,13 +10,13 @@ Summary(pl.UTF-8):	Program do archiwizacji (GNU)
 Summary(pt_BR.UTF-8):	GNU Tape Archiver (tar)
 Summary(tr.UTF-8):	Yaygın kullanılan yedekleyici
 Name:		tar
-Version:	1.32
+Version:	1.33
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Archiving
 Source0:	https://ftp.gnu.org/gnu/tar/%{name}-%{version}.tar.bz2
-# Source0-md5:	17917356fff5cb4bd3cd5a6c3e727b05
+# Source0-md5:	6a2b2a0bfe298ba8402ebbb59e7c563a
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	4e4b1655fe42c27a4eb5d7bcd82e74ac
 Patch0:		%{name}-info.patch
