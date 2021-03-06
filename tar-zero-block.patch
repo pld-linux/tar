@@ -1,6 +1,6 @@
---- tar-1.14/src/list.c.orig	2004-05-10 13:49:09.000000000 +0200
-+++ tar-1.14/src/list.c	2004-09-08 18:48:34.473169312 +0200
-@@ -138,6 +138,14 @@
+--- tar-1.34/src/list.c.orig	2021-03-06 10:21:12.348727417 +0100
++++ tar-1.34/src/list.c	2021-03-06 15:12:39.174304779 +0100
+@@ -241,6 +241,14 @@
  
  	  if (!ignore_zeros_option)
  	    {
@@ -14,10 +14,10 @@
 +
  	      char buf[UINTMAX_STRSIZE_BOUND];
  
- 	      status = read_header (false);
-@@ -146,6 +154,7 @@
- 	      WARN ((0, 0, _("A lone zero block at %s"),
- 		     STRINGIFY_BIGINT (current_block_ordinal (), buf)));
+ 	      status = read_header (&current_header, &current_stat_info,
+@@ -251,6 +259,7 @@
+ 		       (0, 0, _("A lone zero block at %s"),
+ 			STRINGIFY_BIGINT (current_block_ordinal (), buf)));
  	      break;
 +       */
  	    }
